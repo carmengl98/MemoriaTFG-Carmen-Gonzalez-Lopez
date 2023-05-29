@@ -30,7 +30,7 @@
 \usepackage{float}  %% H para posicionar figuras
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
-
+\usepackage{amsmath}
 
 \title{Memoria del Proyecto}
 \author{Carmen González López}
@@ -52,7 +52,7 @@
 \vspace{1.75cm}
 
 \Large
-TITULACIÓN EN MAYÚSCULAS
+GRADO EN INGENIERÍA EN SISTEMAS AUDIOVISUALES Y MULTIMEDIA
 
 \vspace{0.4cm}
 
@@ -136,7 +136,7 @@ Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 202X
 \pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 \begin{flushright}
 \textit{Dedicado a \\
-mi familia / mi abuelo / mi abuela}
+mi familia y amigos}
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -242,9 +242,11 @@ Describiremos la estructura de la memoria, exponiendo el contenido de cada uno d
 
   \item \textbf{Capítulo ~\ref{chap:experimentos}: Experimentos y validación.}
 
-  \item \textbf{Capítulo ~\ref{chap:resultados}: Resultados.}
+  \item \textbf{Capítulo ~\ref{chap:resultados}: Resultados.} En esta sección se realiza una descripción detallada de los datos recopilados, de los análisis estadísticos realizados, de los resultados obtenidos en el análisis y ; además, se realiza una conclusión de dichos resultados.
  
-  \item \textbf{Capítulo~\ref{chap:conclusiones}: Conclusiones.}
+  \item \textbf{Capítulo~\ref{chap:conclusiones}: Conclusiones.} En esta sección se presenta un resumen de los resultados obtenidos y de las conclusiones a las que se ha llegado. 
+  También se enumeran los conocimientos adquiridos durante la carrera que se han aplicado en este proyecto y los aprendidos durante la realización de este.
+  Por último, se comentan futuros trabajos o mejoras para el estudio de los desarrolladores que utilizan archivos UML. 
   
   
 \end{itemize}
@@ -267,7 +269,7 @@ En este capítulo, se presentan los objetivos del trabajo de fin de grado y los 
 \section{Objetivo general} % título de sección (se muestra)
 \label{sec:objetivo-general} % identificador de sección (no se muestra, es para poder referenciarla)
 
-Mi trabajo fin de grado consiste en analizar repositorios de la plataforma de Github para observar las diferencias y similitudes que existen entre los desarolladores que usan ficheros UML frente al resto de desarrolladores.
+El objetivo general de este Trabajo Fin de Grado consiste en analizar repositorios de la plataforma de Github para observar las diferencias y similitudes que existen entre los desarrolladores que usan ficheros UML frente al resto de desarrolladores.
 
 \section{Objetivos específicos}
 \label{sec:objetivos-especificos}
@@ -312,11 +314,11 @@ De la misma manera, obtuve la información necesaria sobre las herramientas Grim
 Después del estudio y análisis de estas herramientas, me decanté por Perceval, ya que con ella se obtienen más datos de Github.
 
 
-De julio a septiembre, empecé a descargar y a almacenar en MongoDB algunos de los repositorios obtenidos en Lindholmen dataset usando Perceval para ver que datos se obtenía y cuales eran más relevantes para, posteriormente, realizar el análisis.
+De julio a septiembre, empecé a descargar y almacenar en MongoDB algunos de los repositorios obtenidos en Lindholmen dataset usando Perceval para ver qué datos se obtenían y cuales eran más relevantes para, posteriormente, realizar el análisis.
 También, inicié el desarrollo de varios programas con los que extaer los datos de interés que, previamente, había seleccionado.
 
 
-Desde octubre hasta diciembre estuve desarrollando un porgrama para que guardase todos los datos de interés extraídos en MongoDB y otro programa que analizase dichos datos almacenados en MongoDB.
+Desde octubre hasta diciembre estuve desarrollando un programa que guardase todos los datos de interés extraídos en MongoDB y otro programa que analizase dichos datos almacenados en MongoDB.
 A la vez, fui recopilando y almacenando los datos de una serie de repositorios de desarrolladores en los que hay archivos UML y repositorios en los que no hay archivos UML.
 Además, almacené los commits de dichos repositorios; ya que estos contienen información de interés para el desarrollo de nuestro análisis.
 
@@ -338,8 +340,8 @@ Para ello, decidí crear un programa que ejecutase el proceso de mongoimport de 
 \chapter{Estado del arte}
 \label{chap:estado}
 
-En este apartado, se proporciona una comprensión completa y actualizada de las herramientas y librerías usadas en el proyecto.
-Esta exposición nos da una visión de la metodología empleada.
+En este apartado, se proporciona una comprensión completa y actualizada de las herramientas y librerías usadas en el Trabajo Fin de Grado.
+Esta exposición nos da una visión de la metodología empleada a lo largo de todo el proyecto.
 
 \section{Tecnologías y herramientas} % título de sección (se muestra)
 \label{sec:tecnologías y herramienta}
@@ -350,9 +352,9 @@ Esta exposición nos da una visión de la metodología empleada.
 Github es una plataforma web de desarrollo colaborativo de software\footnote{\url{https://github.com/}} que permite la colaboración y el almacenamiento de proyectos de código abierto o cerrado.
 En esta plataforma, los usuarios pueden crear y unirse a proyectos para compartir ideas, discutir posibles soluciones y colaborar entre ellos para mejorar dichos proyecto.
 La función principal de Github~\cite{astigarraga2022se} es que los usuarios puedan trabajar juntos en un proyecto desde cualquier lugar y en cualquier momento, ya que, registra el desarrollo de los proyectos de forma remota en la nube y no requiere de una infraestructura de hardware específica.
-Github ofrece una serie de bibliotecas para ayudar a los desarrolladores en su trabajo y herramientas para la gestión de versiones del software, la gestión de problemas, la revisión de código... 
+Github ofrece una serie de bibliotecas para ayudar a los desarrolladores en su trabajo y herramientas para la gestión de versiones del software, la gestión de problemas, la revisión de código, etc. 
 Github integra la funcionalidad de Git que es un sistema de control de versiones distribuido.
-Se dice que es ``distribuido''  porque git tiene un historial completo de cambios, en el cual se puenden revisar los cambios realizados en el código a lo largo del tiempo. 
+Se dice que es ``distribuido'' porque git tiene un historial completo de cambios, en el cual se pueden revisar los cambios realizados en el código a lo largo del tiempo. 
 Esto permite ver las modificaciones de cada desarrollador e incluso deshacerlas si es necesario. Además permite el trabajo de varios desarrolladores en un mismo proyecto.
 En resumen, GitHub es una plataforma que se ha convertido en una herramienta muy popular y esencial en la comunidad de desarrollo de software, ya que permite colaborar y trabajar en equipo para crear proyectos de alta calidad.
  
@@ -368,10 +370,10 @@ En definitiva, MongoDB es un modelo de base de datos orientado a documentos. Cua
 
 
 MongoDB\footnote{\url{https://www.mongodb.com/es/nosql-explained}} tiene un modelo avanzado de consultas e idexación.               
-Además, cuenta con una alta disponibilidad gracias a sus sistemas en la nube y por tanto es capaz de recuperarse en caso de fallo. 
+A esto hay que añadir que cuenta con una alta disponibilidad gracias a sus sistemas en la nube y por tanto es capaz de recuperarse en caso de fallo. 
 Esta recuperación se consigue mediante el proceso de replicación automática.
 La consultas se ejecutan de la siguiente manera: MongoDB recibe por defecto al nodo (index) primario todas las lecturas y ejecuta todas las escrituras.
-El proceso de replicación permite tener siempre uns copia exacta del nodo primario, al replicar sus datos en los nodos secundarios.
+El proceso de replicación permite tener siempre una copia exacta del nodo primario, al replicar sus datos en los nodos secundarios.
 En el caso de que se produzca un fallo en el sistema, el nodo primario pasaría a ser uno de los secundarios contribuyendo a la recuperación del sistema. 
 Otro proceso con el que cuenta es el fragmentación automática (auto-sharding) y el escalado horizontal que permiten la distribución de datos en múltiples servidores de forma que si uno falla, se sustituye rápidamente por otro servidor.
 MongoDB también ofrece controles de seguridad integrados para todos los datos.
@@ -394,7 +396,7 @@ En el siguiente objeto JSON tenemos dos pares clave-valor entre \{ \} y separado
 Cada clave es una cadena de caracteres que se identifica con un valor correspondiente; estos valores pueden ser de cualquier tipo de datos: números, cadenas, booleanos, objetos y matrices.
 Una de las principales ventajas de JSON es que es fácil de leer y escribir para los humanos, lo que lo hace más fácil de entender y depurar en caso de problemas. 
 Este tipo de estructuras son universales y por eso JSON es compatible con la mayoría de los lenguajes de programación y se ha convertido en un formato de datos muy popular.
-Por esta razón, al ser tan versátil se utiliza en aplicaciones web y móviles para transmitir datos entre el cliente y el servidor y como formato para el almacenamiento en bases de datos NoSQL, como MongoDB...~\cite{mora2016serializacion}. 
+Por esta razón, al ser tan versátil, se utiliza en aplicaciones web y móviles para transmitir datos entre el cliente y el servidor y como formato para el almacenamiento en bases de datos NoSQL, como MongoDB, Apache Cassandra, y Redis.~\cite{mora2016serializacion}. 
 
 \begin{figure}
   \centering
@@ -412,7 +414,7 @@ Python\footnote{\url{https://www.python.org/}} es un lenguaje de programación d
 
 
 Fue diseñado para facilitar la escritura de código y por tanto destaca por ser un lenguaje potente, sencillo, fácil de aprender y con una sintaxis clara y legible.
-Este, se considera un lenguaje multiparadigma, ya que, se apoya en diferentes estilos de programación como la programación orientada a objetos, la programación funcional y la programación imperativa.   
+Se considera un lenguaje multiparadigma, ya que, se apoya en diferentes estilos de programación como la programación orientada a objetos, la programación funcional y la programación imperativa.   
 Python además cuenta con estructuras de datos para facilitar el desarrollo de software como listas, diccionarios, conjuntos y tuplas.
 También tiene una gran cantidad de bibliotecas y herramientas que facilitan el desarrollo de software; ya que, con ellas se obtienen soluciones en la tareas básicas de un programador.
 
@@ -430,7 +432,7 @@ Fue lanzado por primera vez en 2004 y desarrollado por una empresa llamada Canon
 
 
 Actualmente Ubuntu~\cite{tavera2013software} se ha convertido en uno de los sistemas operativos más populares en la comunidad de software libre y de código abierto.
-Eso se debe a que está disponible de forma gratuita para su descarga y uso de múltiples formas y, además, tiene una interfaz muy parecida a Windows lo que permite que sea intuitivo y fácil de utilizar por cualquier usuario.
+Esto se debe a que está disponible de forma gratuita para su descarga y uso de múltiples formas y, además, tiene una interfaz muy parecida a Windows lo que permite que sea intuitivo y fácil de utilizar por cualquier usuario.
 
 
 Al igual que con Windows, con este sistema operativo también podemos navegar en la web, crear y modificar documentos; al ser compatible con formatos de archivos muy conocidos, y otras tareas que realizamos en nuestro día a día. 
@@ -452,7 +454,6 @@ mientras que WSL 2 tiene una versión actualizada de su arquitectura del softwar
 Además, utiliza una máquina virtual de Linux integrada que ofrece un rendimiento alto y muy parecido al de un sistema Linux real.
 
 
-
 \subsection{LaTex} % título de sección (se muestra)
 \label{sec:latex} % identificador de sección (no se muestra, es para poder referenciarla)
 
@@ -464,7 +465,7 @@ Fue desarrollado por Donald E. Knuth en 1978 como herramienta para la creación 
 
 LaTeX~\cite{rodriguez2014edicion} usa las características del sistema TeX para generar documentos científicos, técnicos y académicos de alta calidad automaticamente, como artículos académicos, libros, tesis...   
 Además, LaTeX ofrece con una variedad de paquetes, extensiones y estilos personalizados para adaptarse a las indicaciones específicas de cada usuario.
-Las extensiones con las que cuenta permiten insertar fácilmente imágenes, diagramas matemáticos, fórmulas matemáticas, textos de lenguajes de programación...
+Las extensiones con las que cuenta permiten insertar fácilmente imágenes, diagramas matemáticos, fórmulas matemáticas, textos de lenguajes de programación, etc.
 
 
 Estos sistemas de composición de textos están disponibles en gran cantidad de plataformas; además, cuentan con editores gratuitos que facilitan la creación de documentos sin la necesidad de tener conocimientos previos de programación.
@@ -478,8 +479,8 @@ Por eso LaTeX es una herramienta muy utilizada y valorada en la comunidad cient�
 \section{Librerías} % título de sección (se muestra)
 \label{sec:librerías}
 
-\subsection{Perceval} % título de sección (se muestra)
-\label{sec:perceval} % identificador de sección (no se muestra, es para poder referenciarla)
+\subsection{Perceval} % título de subsección (se muestra)
+\label{sec:perceval} % identificador de subsección (no se muestra, es para poder referenciarla)
 
 
 Perceval\footnote{\url{https://github.com/chaoss/grimoirelab-perceval}} es uno de los componentes que contiene GrimoireLAb\footnote{\url{https://chaoss.github.io/grimoirelab/}} que es uno de los proyectos fundadores de CHAOSS Software\footnote{\url{https://chaoss.community/}}.
@@ -520,19 +521,34 @@ Esta herramienta es muy útil para desarrolladores, analistas de datos y cualqui
 Además, cualquier persona puede participar en este proyecto aportando soluciones para corregir errores o ideas para nuevos servicios o funciones.
 También, cuenta con una comunidad de desarrolladores que colaboran continuamente en el mantenimiento y la actualización de sus servicios. 
 
-\subsection{Pymongo} % título de sección (se muestra)
-\label{sec:pymongo} % identificador de sección (no se muestra, es para poder referenciarla)
+\subsection{Pymongo} % título de subsección (se muestra)
+\label{sec:pymongo} % identificador de subsección (no se muestra, es para poder referenciarla)
 
 Pymongo\footnote{\url{https://pypi.org/project/pymongo/}} es una librería de Python que contiene varias herramientas con las que podemos interactuar fácilmente desde un archivo de Python con MongoDB, siendo este una base de datos NoSQL. 
-Con PyMongo, se pueden realizar una variedad de tareas en MongoDB, como crear y eliminar bases de datos y colecciones, insertar, actualizar y eliminar documentos, realizar consultas y filtrar datos...
+Con PyMongo, se pueden realizar una variedad de tareas en MongoDB, como crear y eliminar bases de datos y colecciones, insertar, actualizar y eliminar documentos, realizar consultas y filtrar datos, entre otras posibilidades.
 % PyMongo proporciona una API completa y fácil de usar para realizar operaciones de CRUD (crear, leer, actualizar y eliminar) en MongoDB desde Python. 
 
 
-\subsection{Subprocess} % título de sección (se muestra)
-\label{sec:subprocess} % identificador de sección (no se muestra, es para poder referenciarla)
+\subsection{Subprocess} % título de subsección (se muestra)
+\label{sec:subprocess} % identificador de subsección (no se muestra, es para poder referenciarla)
 El módulo ``subprocess''\footnote{\url{https://docs.python.org/es/3/library/subprocess.html}} (subproceso), permite ejecutar un proceso que se encuentra dentro de un script de Python a la vez que se ejecuta dicho script.
 Esto es posible gracias a que este módulo interactúa con el sistema operativo haciendo posible ejecutar y administrar subprocesos directamente desde Python. 
 Este módulo proporciona varias funciones y clases para interactuar con procesos externos con los cuales los desarrolladores pueden ejecutar comandos en la línea de comandos del sistema operativo y manipular la entrada y salida de estos procesos.
+
+\subsection{Mongoimpot} % título de subsección (se muestra)
+\label{sec:mongoimport} % identificador de subsección (no se muestra, es para poder referenciarla)
+
+\emph{mongoimport}\footnote{\url{https://www.mongodb.com/docs/database-tools/mongoimport/}} es una herramienta que forma parte del paquete ``MongoDB Database Tools''
+Esta se utiliza para importar datos de archivos en formato JSON, CSV o TSV con facilidad desde la línea de comandos a una base de datos MongoDB. 
+Con \emph{mongoimport}, se pueden importar grandes cantidades de datos de manera eficiente, además, se permite especificar la base de datos y la colección en la que se quieren almacenar.
+El comando que se ha usado para importar los archivos es el siguiente:
+
+\begin{verbatim}
+mongoimport --db nombre_base_de_datos --collection nombre_coleccion --file dirección_archivo_a_importar
+\end{verbatim}
+
+\subsection{Matplotlib} % título de subsección (se muestra)
+\label{sec:matplotlib} % identificador de subsección (no se muestra, es para poder referenciarla)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -560,7 +576,7 @@ En la tercera fase realizaremos un análisis estadístico de los datos recopilad
 el archivo JSON generado por Perceval se envía al backend para su almacenamiento y análisis posterior. El backend puede ser una base de datos, un sistema de análisis de datos o cualquier otro sistema que el usuario haya configurado para manejar la información recopilada.
 \begin{figure}
   \centering
-  \includegraphics[width=10cm, keepaspectratio]{img/arquitectura.png}
+  \includegraphics[width=16cm, keepaspectratio]{img/Arquitectura_general.png}
   \caption{Descripción general de Perceval.}\label{fig:arquitectura}
 \end{figure}
 
@@ -613,7 +629,7 @@ Cuando se ha descargado podremos comprobar que Ubuntu se ejecuta con WSL.
 
 \begin{figure}
   \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/Ubuntu.PNG}
+  \includegraphics[width=10cm, keepaspectratio]{img/Ubuntu.PNG}
   \caption{Características de Windows.}\label{fig:ubuntu}
 \end{figure}
 
@@ -626,7 +642,7 @@ Con esta extensión se puede utilizar VS Code en WSL tal y como se haría desde 
 
 \begin{figure}
   \centering
-  \includegraphics[width=15cm, keepaspectratio]{img/extension_wsl.PNG}
+  \includegraphics[width=14cm, keepaspectratio]{img/extension_wsl.PNG}
   \caption{Estencion WSL de Visual Studio Code.}\label{fig:estensionwsl}
 \end{figure}
 
@@ -661,10 +677,9 @@ Posteriormente, Perceval procesa esta información y la almacena en documentos.
 
 \begin{figure}
   \centering
-  \includegraphics[width=12cm, keepaspectratio]{img/perceval-json.png}
-  \caption{Esquema de arquitectura general.}\label{fig:perceval-json}
+  \includegraphics[width=10cm, keepaspectratio]{img/perceval-json.png}
+  \caption{Descripción general de Perceval.}\label{fig:perceval-json}
 \end{figure}
-
 
 En este proyecto se eligió como fuente de datos Github. 
 Partiendo de esta fuente de datos a Perceval se le pasaron los siguientes parámetros: el nombre del repositorio o dirección URL, el nombre y tipo de archivo con el que queremos que se guarden los documentos generados y, además, según el comando usado obtendremos los datos de los repositorios o de otras categorías como, en este caso, los commits, u otras como las issues, los pull request...
@@ -681,12 +696,22 @@ La intalación tanto de WLS como de Ubuntu y Perceval se han explicado en el apa
 
 Después de finalizar el proceso de obtención de los datos de los repositorios se procedió a almacenarlos en la base de datos MongoDB.
 Para este fin, se buscó una forma de introducir los archivos JSON de forma automática. 
-Para ello, se uso el módulo de python \emph{subprocess} junto con \emph{mongoimport}, que es una herramienta que se utiliza para importar datos de archivos en formato JSON, CSV o TSV con facilidad desde la línea de comandos.
-Con \emph{mongoimport}, se pueden importar grandes cantidades de datos de manera eficiente, además, se permite especificar la base de datos y la colección en la que se quieren almacenar.
+Para ello, se uso el módulo de python \emph{subprocess} junto con \emph{mongoimport} para desarrollar los ficheros que introducen todos los documentos JSON, obtenidos anteriormente, para crear la base de datos que vamos a estudiar.
+En estos fichero se ejecuta \emph{mongoimport} con cada uno de los archivos JSON obtenidos, tanto de los de los repositorios como de los commits con el comando que se muestra a continuación:
+\begin{verbatim}
+  mongoimport --db project --collection Repositories --file "...\repository\repoFile.json"
+  mongoimport --db project --collection Commits --file "...\commit\commitFile.json"
+\end{verbatim}
 
 
-Con estas dos herramientas se desarrolló un fichero que introduce todos los documentos JSON, obtenidos anteriormente, para crear la base de datos que vamos a estudiar.
-En este fichero se ejecuta \emph{mongoimport} con cada uno de los archivos JSON obtenidos, tanto de los de los repositorios como de los commits.
+en el cual;
+\begin{itemize}
+  \item ``Project'' es el nombre de nuestra base de datos
+  \item ``Repositories'' es el nombre de la colección en la que almacenaremos todos los datos extraídos de cada repositorio.
+  \item ``Commits'' es el nombre de la colección en la que almacenaremos todos los datos extraídos de cada commit hecho por cada repositorio.
+  \item ``...\textbackslash repository\textbackslash repoFile.json'' es la ruta en la que se encuentran todos los archivos JSON que se corresponden con los datos extraídos de los repositorios.
+  \item  ``...\textbackslash commit\textbackslash commitFile.json'' es la ruta en la que se han almacenado los archivos JSON con los datos de los commits generados por los repositorios
+\end{itemize}
 
 \section{Procesado de datos} % título de sección (se muestra)
 \label{sec:procesado de datos}
@@ -696,6 +721,12 @@ Posteriormente, se inició el desarrollo de varios ficheros con los que extaer l
 Al mismo tiempo, se estudió en qué tipo de base de datos se deberían guardar los archivos JSON obtenidos con Perceval.
 Se optó por una base de datos que no fuese relacional (NoSQL), ya que los datos no estaban relacionados entre sí y este tipo de bases de datos son muy útiles para trabajar con grandes conjuntos de datos distribuidos.
 Por esta razón, se decidió almacenarlos en MongoDB que es una base de datos NoSQL de código abierto. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/procesamiento_datos.png}
+  \caption{Descripción de la fase de procesamiento de datos.}\label{fig:procesamiento_datos}
+\end{figure}
 
 Para almacenar estos datos se desarrolló un fichero que se conecta a MongoDB y, a partir de aquí, se crea una nueva coleción y se introducen los datos que le pasamos.
 A la hora de importar los datos se decidió usar una estructura de diccionario como la que obsevamos a continuación.
@@ -716,6 +747,7 @@ A la hora de importar los datos se decidió usar una estructura de diccionario c
   }
 \end{verbatim}
 }
+
 
 A continuación, se explicaran los datos extraídos de los repositorios y los commits que se han guardado en esta estructura:
 \begin{itemize}
@@ -760,116 +792,105 @@ A continuación, se explicaran los datos extraídos de los repositorios y los co
 \section{Análisis de datos} % título de sección (se muestra)
 \label{sec:análisis de datos}
 
-% En esta sección se describe el proceso de análisis de los datos obtenidos a partir de Perceval de los distintos repositorios de Github. 
-% Se comenzó por la revisión y limpieza de los datos, eliminando aquellos datos que no decidimos incluir en el análisis establecido previamente. 
-% Luego, se procedió a la exploración de los datos mediante el cálculo de estadísticos descriptivos para cada una de las variables de interés. 
-% Para ello se realizó un fichero en el que se hace el análisis de los datos extraídos usando Python, observando así las diferencias entre los desarrolladores que utilizan uml y el resto.
-% De los 400 datos recogidos la mitad son desarrolladores que usan archivos UML y la otra mitad desarrolladores que no usan archivo UML. 
-
-% Además, se observó una alta proporción de participantes con nivel universitario (80), y que la mayoría reportó trabajar en el sector privado (60).
-% Los resultados indicaron que el bienestar psicológico y la calidad de liderazgo de los supervisores fueron los principales predictores de la satisfacción laboral, explicando conjuntamente el 60 de la varianza observada
+Con el análisis de datos, que es el objetivo final del proyecto, se pretende conocer las similitudes y diferencias entre los desarrolladores que utilizan archivos UML y el resto de los desarrolladores que no utilizan este tipo de archivos.
 
 
-% En el fichero desarrollado se han analizado los siguientes puntos de cada uno de los repositorios:
+En esta sección se describe el proceso de análisis de los datos obtenidos, a partir de Perceval, de los distintos repositorios de Github. 
+Se comenzó por la revisión y limpieza de los datos, eliminando aquellos que decidimos no incluir, ya que no se consideraban datos relevantes para el análisis que pretendemos hacer. 
+A partir de aquí, se procedió a la exploración de los datos, mediante el cálculo de estadísticos descriptivos, para cada una de las variables de interés. 
+Para ello se realizó un fichero en el que se ejecuta el análisis de los datos extraídos usando Python, observando así las diferencias entre los desarrolladores que utilizan UML y el resto.
+A este fichero se le pasaron los 400 datos recogidos; de los cuales, la mitad son desarrolladores que usan archivos UML y la otra mitad desarrolladores que no usan archivo UML. 
+En el fichero desarrollado se han analizado los siguientes datos de cada uno de los repositorios:
 
-% \subsection{Licencia del repositorio} % título de subsección (se muestra)
-% \label{sec:licencia del repositorio}
-% Se realizará un proceso de análisis estadístico de los repositorios para saber si tienen o no licencia.
-% Para cada repositorio, se ha accedido a el valor ``Licencia'' de los documentos JSON obtenidos con Perceval y se ha registrado dicha información correspondiente.
+\subsection{Licencia del repositorio} % título de subsección (se muestra)
+\label{sec:licencia del repositorio}
+Lo primero que nos interesa conocer es el número de archivos que tienen licencia y cuáles no.
+Para ello se realiza un proceso de análisis estadístico de los repositorios para saber si tienen o no licencia.
+Para cada repositorio, se ha accedido al valor ``Licencia'' de los documentos JSON obtenidos con Perceval y se ha registrado la información correspondiente.
 
-% En este análisis lo primero será extraer los valores almacenados en la base de datos en el campo de licencia de cada uno de los documentos JSON que hemos generado para guardar los puntos a analizar de cada desarrollador. 
-% Posteriormente, usaremos la siguiente función () en la cual si no se encuentra ninguna información de la licencia en el valor de ``Licencia'' del objeto JSON, el repositorio no tiene licencia.
+En este análisis lo primero será extraer cada uno de los documentos JSON, que hemos generado, para guardar los puntos a analizar de cada desarrollador.
+De cada uno de estos documentos se obtendrán los valores almacenados en el campo ``Licencia''.
+Posteriormente, se comprobará si el objeto JSON tiene información en el valor ``Licencia''; si el valor es nulo, se entiende que el repositorio no tiene licencia.
 
-% Realizar un análisis estadístico de los resultados obtenidos para determinar la frecuencia de los diferentes tipos de licencia presentes en los repositorios. 
 
-% \begin{equation}
-%   Licencia =
-%   \begin{cases}
-%   1 & \text{si el repositorio tiene una licencia} \\
-%   0 & \text{en cualquier otro caso}
-%   \end{cases}
-%   \end{equation}
+\begin{equation}
+  Licencia =
+  \begin{cases}
+  [licencia], & \text{si el repositorio tiene una licencia} \\
+  null, & \text{si el repositorio no tiene una licencia}
+  \end{cases}
+\end{equation}
+
+Después de recoger los resultados de esta función comparativa, se procede a realizar la media de los 200 repositorios con archivos UML y la media de los 200 que no tienen este tipo de archivos.
+\[{Licencia} = \frac{1}{200} \sum_{i=1}^{200} x_i\]
 
 \subsection{Propietario del repositorio} % título de subsección (se muestra)
 \label{sec:propietario del repositorio}
 
-% En este caso se procederá a estudiar el promedio de los tipos de propietarios de los desarrolladores UML y del resto de los desarrolladores.
-% Los posibles tipos de propietarios que puede haber son ``User'' si es un usuario único o ``Organization'' si se trata de una organización compuesta por varios usuarios.
-% Esta información se muestra también en los documentos JSON obtenidos de los repositorios.
+Otro de los datos relevantes que nos interesa conocer es el tipo de propietario de los repositorios, si usuario único o bien un usuario que es una organización. 
+Para ello se procede a estudiar el promedio de los tipos de propietarios de los desarrolladores UML y del resto de los desarrolladores.
+Los posibles tipos de propietarios que puede haber son ``User'', si es un usuario único o ``Organization'' si se trata de una organización compuesta por varios usuarios.
+Esta información se muestra también en los documentos JSON obtenidos de los repositorios.
 
-% \begin{equation}
-%   Propietario =
-%   \begin{cases}
-%   User & \text{si el propietario del repositorio es un usuario} \\
-%   Organization & \text{si el propietario del repositorio es una organización}
-%   \end{cases}
-%   \end{equation}
+\begin{equation}
+  Propietario =
+  \begin{cases}
+  User, & \text{si el propietario del repositorio es un usuario} \\
+  Organization, & \text{si el propietario del repositorio es una organización}
+  \end{cases}
+\end{equation}
 
-% Después de haber definido los propietarios de cada uno de los repositorios, se procederá a realizar la media de todos ellos para conocer si los repositorios que contienen archivos UML suelen ser propiedad de organizaciones o de usuarios únicos.
-% A continuación se muestra la fórmula usada para realizar las medias de los repositorios cuyos propietarios son usuario o desarrolladores:
+Después de haber definido los propietarios de cada uno de los repositorios, se realizará la media de todos ellos para conocer si los repositorios que contienen archivos UML suelen ser propiedad de organizaciones o de usuarios únicos.
+A continuación se muestra la fórmula usada para realizar las medias de los repositorios cuyos propietarios son usuario o desarrolladores:
 
-% \bar{X} = \frac{1}{400}\sum_{i=1}^{400} x_i
+\[{User} = \frac{1}{200} \sum_{i=1}^{200} x_i\]
+\[{Organization} = \frac{1}{200} \sum_{i=1}^{200} x_i\]
+
 
 \subsection{Existencia de fork del repositorio} % título de subsección (se muestra)
 \label{sec:existencia de fork del repositorio}
 
-% \begin{equation*}
-%   \text{Condición: } 
-%   \begin{cases}
-%     \text{Verdadero, } & \text{si } \text{condición verdadera} \\
-%     \text{Falso, } & \text{si } \text{condición falsa}
-%   \end{cases}
-% \end{equation*}
+Un tercer tipo de dato que nos interesa en este análisis es saber si se han hecho bifurcaciones de los respositorios.
+Para obtener dicha información se usará la función, que indicamos más adelante, que nos permitirá comprobar si en los repositorios, que se han seleccionado, se han realizado fork o no.
+En los datos extraídos con Perceval de los repositorios se encuentra el campo ``Fork'' con el cual se comprueba si se ha realizado una bifurcación (``Fork'') del proyecto o no.
+En caso de que el valor de este campo sea ``true'' , se habrá realizado el ``Fork''; en caso contrario, este valor será ``false''.
 
-% \begin{equation}
-%   Fork =
-%   \begin{cases}
-%   True & \text{si el repositorio tiene un fork} \\
-%   False & \text{en cualquier otro caso}
-%   \end{cases}
-%   \end{equation}
 
-% Una vez que se han definido los repositorios que tiene fork y los que no se procederá a realizar la media de todos ellos para conocer si los desarrolladores UML suele realizar fork con respecto al resto de los desarrolladores.
-% A continuación se muestra la fórmula usada para realizar la media de los repositorios que han realizado un fork:
+\begin{equation}
+  Fork =
+  \begin{cases}
+  True, & \text{si en el repositorio se ha hecho un fork} \\
+  False, & \text{si en el repositorio no se ha hecho un fork}
+  \end{cases}
+\end{equation}
 
-% \bar{X} = \frac{1}{400}\sum_{i=1}^{400} x_i
+Una vez que se han definido los repositorios que tiene fork y los que no, se procederá a realizar la media de todos ellos para conocer si los desarrolladores UML suele realizar fork con respecto al resto de los desarrolladores.
+A continuación se muestra la fórmula usada para realizar la media de los repositorios que han realizado un fork:
+
+
+\[{Fork} = \frac{1}{200} \sum_{i=1}^{200} x_i\]
 
 \subsection{Lenguaje de programación principal del repositorio} % título de subsección (se muestra)
 \label{sec:lenguaje de programación principal del repositorio}
-% \bar{X} = \frac{1}{400}\sum_{i=1}^{400} x_i
+Para comprobar los lenguajes de programación que predominan, según si el desarrollador utiliza archivos UML o no, se han recogido todos ellos en los documentos JSON generados.
+Con esta información se realizará la media de estos datos siguiendo la siguiente fórmula para cada uno de los 10 lenguajes de programación que se han seleccionado.
 
 
-
+\[{Lenguaje X} = \frac{1}{200} \sum_{i=1}^{200} x_i\]
 
 \subsection{Cantidad total o frecuencia de los commits del repositorio} % título de subsección (se muestra)
 \label{sec:cantidad total o frecuencia de los commits del del repositorio}
 
-% \bar{X} = \frac{1}{400}\sum_{i=1}^{400} C_i
+Otro dato a analizar es el número total de commits que ha realizado el propietario de los repositorios.
+Este dato representa la cantidad de cambios o actualizaciones que se han realizado en el código del proyecto.
+Lo que nos puede dar una idea de si el desarrollador ha dedicado una gran cantidad de tiempo en un proyecto o no y, por tanto, esto nos dice si el proyecto en sí es grande o no. 
 
+Para saber el número medio de commits que realizan los desarrolladores que usan archivos UML y los que no los usan, se usará la fórmula de la media como se ha hecho en los casos anteriores.
+Con esta fórmula usaremos los datos relacionados con el número total de commits de cada repositorio que se encuantran almacenados en los documentos JSON de la base de datos de MongoDB.
+Estos documentos JSON los analizaremos separando los repositorios con UML del resto. 
+Por tanto, se realizarán dos medias de 200 datos cada una de ellas, para comparar el número medio de commits que realiza cada tipo de desarrollador.
+\[{Commits} = \frac{1}{200} \sum_{i=1}^{200} x_i\]
 
-
-\begin{tabular}{|c|c|c|}
-  \hline
-  Datos & Desarrolladores UML & Desarrolladores NO UML\\
-  \hline
-  Con licencia &  &  \\
-  Usuario &  & \\
-  Organización &  & \\
-  Con fork &  & \\
-  JavaScript &  & \\
-  Python &  & \\
-  C &  & \\
-  C++ &  & \\
-  Java &  & \\
-  PHP &  & \\
-  Ruby &  & \\
-  Pascal &  & \\
-  Html &  & \\
-  Swift &  & \\
-  Otros &  & \\
-  Num commits &  & \\
-  \hline
-  \end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -893,13 +914,87 @@ Incluye también los resultados de validación que permiten afirmar que tus resu
 \chapter{Resultados}
 \label{chap:resultados}
 
-En este capítulo se incluyen los resultados de tu trabajo fin de grado. Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejemplos de haberla utilizado para que se vea su utilidad.
+En este capítulo se incluyen los resultados de tu trabajo fin de grado. 
+Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejemplos de haberla utilizado para que se vea su utilidad.
+
+\section{Descripción de los datos recopilados}
+\label{sec:descripción de los datos recopilado}
+
+Los datos recopilados para el análisis de este proyecto se obtuvieron de una selección de repositorios públicos almacenados en GitHub. 
+Estos repositorios pueden contener archivos de código, documentación y otros tipos de archivos como los ``.uml''.
+Este último tipo de archivos será el que divida los datos obtenidos para el análisis de nuestro estudio en los repositorios que lo contengan y en los que no.
 
 
-En este capítulo se presentan los resultados obtenidos tras la realización del estudio. 
-Se han llevado a cabo distintos análisis estadísticos para evaluar la validez de las hipótesis planteadas en el capítulo anterior. 
-Para ello, se ha utilizado una muestra de 200 participantes, divididos equitativamente entre hombres y mujeres. 
-A continuación, se exponen los resultados obtenidos para cada una de las variables estudiadas y se interpretan los hallazgos más relevantes.
+Para la selección de los 400 repositorios que se han analizado en este proyecto, se han escogido 200 repositorios con archivos ``.uml'', los cuales han sido obtenidos de la base de datos Lindholmen dataset\footnote{\url{http://models-db.com/}}, que contiene una lista con los repositorios que utilizan diagramas UML en GitHub.
+
+
+En cuanto a los repositorios que no contienen archivos ``.uml'', estos se han recopilado manualmente de los usuarios que siguen o son colaboradores de los usuarios que aparecen en la lista de los repositorios con archivos ``.uml''.
+
+
+Para reunir los datos que se usarán en el análisis del proyecto, se ha recurrido a la herramienta de Perceval, con la cual se han obtenido 400 archivos en formato JSON con todos los datos de cada repositorio de GitHub y otros 400 archivos JSON con los commits generados en estos repositorios.
+Estos archivos JSON contienen datos estructurados de toda la información de los repositorios a analizar, lo que nos permitirá organizar y almacenar los datos de interés de cada uno de estos archivos fácilmente. 
+
+
+Como se ha mencionado anteriormente, el conjunto de los 400 archivos JSON, tanto de los repositorios como de los commits, se ha dividido en aquellos repositorios que usan ``.uml'' y aquellos que no. 
+Con esta división de los datos contenidos en los archivos JSON, se analizarán mejor las similitudes y diferencias entre los diferentes ususarios de estos repositorios. 
+
+
+De las características que se pueden observar en cada uno de los archivos JSON, obtenidos tanto de los repositorios como de los commits realizados en estos, se han decidido estudiar las siguientes: la licencia ( nos dice si el repositorio garantiza derechos y responsabilidades),
+el tipo de propietario ( nos dice si el propietario del repositorio es un usuario único o una entidad que representa un grupo de personas ), la existencia de forks (nos dice si el repositorio permite a colaboradores trabajar directamente en el repositorio o trabajar en una copia independiente de este ),
+el lenguaje de programación principal ( nos dice el lenguaje principal que se emplea en el repositorio ), la cantidad total o frecuencia de los commits ( refleja el nivel de actividad de un proyecto).
+Para extraer dichas características de los archivos JSON, se ha realizado un procesamiento de los datos que se encuentran en estos archivos.
+Con el objetivo de obtener los datos de estas características se han desarrollado varios ficheros de Python con los cuales se sacan los datos que se encuentran en diferentes campos de los archivos JSON.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/Figure_repos.png}
+  \caption{Número de repositorios con archivos UML y sin archivos UML.}\label{fig:Figure_repos}
+\end{figure}
+
+\section{Análisis estadístico de los datos recopilados}
+\label{sec:análisis descriptivo de los datos recopilado}
+
+Después de recopilar y preprocesar los datos seleccionados se realiza un análisis estadístico de estos con el cuál se podrán observar las similitudes y diferencias de los desarrolladores que se han seleccionado en este estudio.
+
+
+\section{Interpretación de los resultados del análisis}
+\label{sec:interpretación de los resultados del análisis}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/Figure_license.png}
+  \caption{Número de repositorios con licencia y sin licencia.}\label{fig:Figure_license}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/Figure_typeDeveloper.png}
+  \caption{Número de propietarios que son ususarios y organizaciones.}\label{fig:Figure_typeDeveloper}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/Figure_fork.png}
+  \caption{Número de repositorios con fork y sin fork}\label{fig:Figure_fork}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/Figure_commits.png}
+  \caption{Número de commits total}\label{fig:Figure_commits}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/Figure_languages.png}
+  \caption{Número de repositorios por lenguaje principal de programación}\label{fig:Figure_language}
+\end{figure}
+
+
+\section{Conclusiones de los resultados del análisis}
+\label{sec:conclusiones de los resultados del análisis}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -922,6 +1017,7 @@ Cuando algo no se ha conseguido, se ha de justificar, en términos de qué probl
 Y si has llegado hasta aquí, siempre es bueno pasarle el corrector ortográfico, que las erratas quedan fatal en la memoria final.
 Para eso, en Linux tenemos aspell, que se ejecuta de la siguiente manera desde la línea de \emph{shell}:
 
+
 \begin{verbatim}
   aspell --lang=es_ES -c memoria.tex
 \end{verbatim}
@@ -929,24 +1025,41 @@ Para eso, en Linux tenemos aspell, que se ejecuta de la siguiente manera desde l
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
 
-Aquí viene lo que has aprendido durante el Grado/Máster y que has aplicado en el TFG/TFM. Una buena idea es poner las asignaturas más relacionadas y comentar en un párrafo los conocimientos y habilidades puestos en práctica.
+La aplicación de los conocimientos y habilidades adquiridos en mi formación académica en el Grado en Ingeniría en Sistemas Audiovisuales y Multimedia ha sido esencial para la elaboración de este Trabajo de Fin de Grado.
+A continuación, se mencionan los aprendizajes que me permitieron realizar la extracción, tratamiento y clasificación de datos para obtener como resultado el análisis de este proyecto. 
 
 \begin{enumerate}
-  \item a
-  \item b
+  \item Informática I: Me sirvió fundamentalmente par adquirir las bases de programación.
+  \item Informática II: Aparte de reforzar las bases de programación adquiridas, obtuve una formación en otras herramientas comúnmente usadas para programar y, además, mejoré la estructuración de código y lógica necesarias en programación.
+  \item Protocolos para la Transmisión de Audio y Vídeo de Internet: En esta materia aprendí los conocimientos del lenguaje de programación Python además de cómo se estructura y para qué se usa la estructura de datos JSON.
 \end{enumerate}
 
 
 \section{Lecciones aprendidas}
 \label{sec:lecciones_aprendidas}
 
-Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
+Durante la realización de este Trabajo de Fin de Grado, he adquirido diversos conocimientos sobre las herramientas usadas para realizar un análisis de datos. 
+A continuación, se presentan algunos de los aprendizajes más significativos que he adquirido:
 
 \begin{enumerate}
-  \item Aquí viene uno.
-  \item Aquí viene otro.
+  \item  Al inicio de este proyecto lo primero que aprendí fue cómo funciona la herramienta de Perceval. Gracias a ella he podido obtener los datos necesarios para realizar el análisis de este proyecto, que era el objetivo final del mismo. 
+  \item  Este proyecto, además, me ha servido para entender mejor los tipos de repositorios que se encuentran en GitHub; ya que, analizando las características de estos repositorios se puede sacar mucha información de sus propietarios para ver las características que los definen, tales como si usan licencia, si son usuarios únicos o forman parte de una organización, etc.
+  \item  He ampliado mis conocimientos sobre la estructura JSON. Esto me ha servido para comprender porque es comúnmente utilizada para el tratamiento e intercambio de datos, la razón no es otra que su sintaxis sencilla, su formato ligero y su flexibilidad en la estrutura de datos. Además, como he trabajado con archivos JSON durante la realización del proyecto, he mejorado la forma en la que tratar dichos archivos a la hora de extraer y guardar datos en dicha estructura.  
+  \item  También, he mejorado mis conocimientos de Python al emplear este lenguaje de programación en el desarrollo de los ficheros que se han usado para el tratamiento de los datos de los archivos JSON obtenidos con Perceval.    
+  \item  Utilizar MongoDB ha sido otro de los aprendizajes durante este proyecto; puesto que, no tenía apenas conocimientos de bases de datos y nunca las había utilizado. Asimismo, en este proyecto, he aprendido a usar MongoDB con Python empleando el módulo ``pymongo'' con el que te puedes contectar a MongoDB y trabajar con las bases de datos.
+  \item  Aprender a usar el módulo ``subprocess'' ha sido muy útil; puesto que con este módulo se ha creado un fichero, que introduce todos los documentos JSON en MongoDB, de modo automático al ejecutar dicho fichero.
+  \item  Realizar este proyecto con LaTeX ha sido otra de las lecciones que he adquirido. El aprendizaje de Latex no ha sido muy costoso y gracias a él he podido tener la memoria del Trabajo de Fin de Grado bien estructurada y organizada.
 \end{enumerate}
 
+
+Entre las lecciones aprendidas detacaría también la adquisición o mejora de algunas destreza necesarias para elaborar un proyecto de estas características:
+\begin{enumerate}
+  \item  La primera es que este proyecto me ha servido para saber determinar y acotar el objeto de investigación de un proyecto como éste y los pasos a seguir en su desarrollo.
+  \item  La planificación y la capacidad para establecer plazos realistas sobre las diferentes etapas del proyecto ha sido otra destreza que he mejorado durante la realización de este Trabajo de Fin de Grado.
+  \item  Otra de las destrezas que he desarrollado es a saber elegir y seleccionar qué información, entre la gran cantidad de información que exite, es relevante y cual no, puesto que no aporta nada significativo al objeto de investigación.
+  \item  También he adquirido la aptitud para resolver y analizar los problemas que pueden surgir en un proyecto de este tipo y buscar posibles soluciones y alternativas.  
+  \item  Y, por último, el esfuerzo de síntesis a la hora de redactar el proyecto y que este resulte claro para aquellos que lo lean y quieran realizar o ampliar dicho estudio. 
+\end{enumerate}
 
 \section{Trabajos futuros}
 \label{sec:trabajos_futuros}
