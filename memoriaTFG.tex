@@ -31,6 +31,8 @@
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
 \usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
 
 \title{Memoria del Proyecto}
 \author{Carmen González López}
@@ -47,32 +49,36 @@
 
 \begin{titlepage}
 \begin{center}
-\includegraphics[scale=0.8]{img/URJ_logo_Color_POS.png}
+\includegraphics[scale=0.6]{img/URJ_logo_Color_POS.png}
 
 \vspace{1.75cm}
 
-\Large
-GRADO EN INGENIERÍA EN SISTEMAS AUDIOVISUALES Y MULTIMEDIA
-
-\vspace{0.4cm}
-
-\large
-Curso Académico 2022/2023
-
-\vspace{0.8cm}
-
-Trabajo Fin de Grado/Máster
-
-\vspace{2.5cm}
+\LARGE
+ESCUELA DE INGENIERÍA DE FUENLABRADA
+\vspace{1cm}
 
 \LARGE
+GRADO EN INGENIERÍA EN SISTEMAS AUDIOVISUALES Y MULTIMEDIA
+
+\vspace{1cm}
+\LARGE
+\textbf{TRABAJO FIN DE GRADO}
+
+\vspace{2cm}
+
+\Large
 TÍTULO DEL TRABAJO EN MAYÚSCULAS
 
-\vspace{4cm}
+\vspace{2cm}
 
 \large
 Autor : Carmen González López \\
-Tutor : Gregorio Robles Martínez
+Tutor : Gregorio Robles Martínez\\
+\vspace{1cm}
+
+\large
+Curso académico 2022/2023
+
 \end{center}
 \end{titlepage}
 
@@ -156,7 +162,7 @@ Esto ha sido gracias a la experiencias y conocimientos que se adquieren en esta 
 
 En primer lugar, agradecer a mi familia por creer siempre en mí, cuando ni yo misma lo hacía, en especial a mis padres, que en la distancia me han apoyado todos los días hasta el final.
 A ellos quiero agradecerles que me brindasen la oportunidad de formarme en un Grado Universitario, ya que soy consciente de que no todos tienen este privilegio.
-Agradecerles también su paciencia por escucharme tanto en los buenos como en los malos momentos y darme siempre consejo.
+Agradecerles también su paciencia por escucharme, tanto en los buenos como en los malos momentos y darme siempre consejo.
 Además, quería mencionar que ellos siempre me han inculcado que con trabajo y esfuerzo todo es posible, por lo que este logro también les pertenece.
 
 
@@ -186,15 +192,26 @@ A todos ellos, mi más sincero agradecimiento por el apoyo en esta etapa y por l
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-
-Ha de constar de tres o cuatro párrafos, donde se presente de manera clara y concisa de qué va el proyecto. 
-Han de quedar respondidas las siguientes preguntas:
-
 \begin{itemize}
   \item ¿De qué va este proyecto? ¿Cuál es su objetivo principal?
   \item ¿Cómo se ha realizado? ¿Qué tecnologías están involucradas?
   \item ¿En qué contexto se ha realizado el proyecto? ¿Es un proyecto dentro de un marco general?
 \end{itemize}
+
+El propósito de este Trabajo de Fin de Grado es realizar un análisis de repositorios de GitHub, comparando aquellos que incluyen diagramas UML con aquellos que no los incluyen. 
+El objetivo es comprender e investigar el impacto de la presencia de diagramas UML en el desarrollo de software para generar información que pueda ser útil tanto para los desarrolladores y equipos de proyectos que utilizan diagramas UML, como para la comunidad de la ingeniería de software. 
+A través de la minería de datos en los repositorios de GitHub, se ha recopilado información sobre datos relevantes para esta comparativa como son : el propietario del repositorio, el tamaño del repositorio, el número de colaboradores del repositorio, el lenguaje principal del repositorio, entre otros.
+Con esta información se pretenden hallar los patrones y diferencias que existen en los repositorios con presencia de diagramas UML y en los repositorios sin estos diagramas. 
+
+
+Para llevar acabo este proyecto se han empleado herramientas que nos han ayudado a extraer, filtrar y analizar los datos obtenidos de los repositorios almacenados en GitHub.
+En el proceso de extracción de datos se ha empleado la herramienta Perceval con la que se obtienen documentos JSON.
+Perceval nos proporciona una gran cantidad de información sobre los repositorios y los commits realizados en estos.
+Los documentos JSON con esta información se guardan en MongoDB, usando la librería ``Subprocess'' para posteriormente ser filtrados mediante varios ficheros y almacenados de nuevo en MongoDB mediante la librería ``Pymongo''.
+Por último, con los datos relevantes que se encuentran estructurados en MongoDB se realizará un análisis y una posterior visualización de los resultados con ``Matplotlib''.  
+
+% Se espera que los resultados obtenidos contribuyan a mejorar las prácticas de desarrollo de software, optimizar la colaboración entre los miembros del equipo y promover la importancia de la documentación visual en el desarrollo de software de calidad. 
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -242,7 +259,7 @@ As it is the translation of the ``Resumen'', which is supposed to be written at 
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
 
-En este primer capítulo, se presenta el contexto y la motivación en la que se ha desarrollado esta investigación, se exponen las preguntas que guiarán el desarrollo de este proyecto, así como información en general sobre el mismo y la estructura general que seguiremos durante el proceso de este Trabajo de Fin de Grado.
+En este primer capítulo se presenta el contexto y la motivación en la que se ha desarrollado esta investigación, se exponen las preguntas que guiarán el desarrollo de este proyecto, así como información en general sobre el mismo y la estructura general que seguiremos durante el proceso de este Trabajo de Fin de Grado.
 
 
 \section{Motivación} % título de sección (se muestra)
@@ -251,7 +268,7 @@ En este primer capítulo, se presenta el contexto y la motivación en la que se 
 La motivación que me ha llevado a realizar este trabajo surge de mi profesor y tutor, Gregorio Robles, quien me animó a realizar una investigación sobre los repositorios que utilizan diagramas UML y aquellos que no los utilizan en la plataforma de GitHub.
 
 
-Github\footnote{\url{https://github.com/}} es una plataforma que alberga una gran cantidad de información valiosa, al ser la plataforma líder en alojamiento de repositorios de código fuente. 
+GitHub\footnote{\url{https://github.com/}} es una plataforma que alberga una gran cantidad de información valiosa, al ser la plataforma líder en alojamiento de repositorios de código fuente. 
 La recopilación de datos de esta plataforma nos brinda una perspectiva detallada sobre los patrones de desarrollo de software, tanto de los repositorios que contienen diagramas UML como de los que no los contienen.
 Esto nos permite que, al aplicar técnicas de minería de datos, podamos extraer información valiosa de grandes volúmenes de datos generados en los repositorios de GitHub y analizar estos datos para descubrir patrones que ayuden a investigadores, desarrolladores y organizaciones a tomar decisiones más informadas y mejorar la calidad del software.
 
@@ -261,7 +278,7 @@ Esta propuesta del profesor Robles despertó mi interés y motivación para aden
 
 Realizar este proyecto de investigación me ha brindado la oportunidad de adquirir conocimientos sobre minería de datos y de aprender a realizar un análisis detallado utilizando estas técnicas; ya que la minería de datos se ha convertido en una disciplina fundamental para extraer conocimiento útil y significativo a partir de grandes volúmenes de datos.
 Además, a lo largo de este trabajo, pude profundizar mi comprensión sobre el funcionamiento de los repositorios de GitHub y cómo se almacenan y organizan los datos en esta plataforma. 
-Este me resultó de gran utilidad, a medida que exploraba y analizaba los repositorios, para identificar aquellos que utilizaban diagramas UML y compararlos con aquellos que no los utilizaban.
+Este me resultó de gran utilidad, a medida que exploraba y analizaba los repositorios, para identificar aquellos que utilizaban diagramas UML y compararlos con aquéllos que no los utilizaban.
 
 
 Durante la investigación sobre los diagramas UML me fui dando cuenta de cómo estos pueden impactar en el desarrollo de software, ya que estos se utilizan para representar visualmente la estructura y el comportamiento de sistemas de software.
@@ -276,6 +293,7 @@ Esto puede ayudar a promover el uso de UML y mejorar la calidad y eficiencia de 
 
 \section{Objetivos e hipótesis de investigación} % título de sección (se muestra)
 \label{sec:bbjetivos e hipótesis de investigación} % identificador de sección (no se muestra, es para poder referenciarla)
+
 
 El objetivo de este trabajo es analizar y comparar repositorios con y sin diagramas UML para que podamos obtener información sobre cómo estos diagramas UML pueden influir en los proyectos de los desarrolladores. 
 
@@ -300,13 +318,13 @@ Sin embargo, es importante tener en cuenta que esta hipótesis puede variar depe
 En cuanto a los lenguajes de programación más utilizados en este tipo de repositorios pueden variar según el proyecto y las preferencias de los desarrolladores, pero en nuestra hipótesis damos por supuesto que en la mayoría de los repositorios con diagramas UML los lenguajes de programación que predominan son algunos de los lenguajes más usados en la actualidad, como son: Java, Python o JavaScript. 
 
 
-Por último, mencionar que en el análisis a realizar para comprobar esta hipótesis, en sus diatintas partes, incluimos otros aspectos como son: stars, forks, commits, colaboradores, licencia y el size, que nos pueden ofrecer información relevante sobre las tendencias que marcan los repositorios que tienen diagramas UML frente al resto de repositorios que no tienen diagramas UML.
+Por último, cabe mencionar que en el análisis a realizar para comprobar esta hipótesis, en sus diatintas partes, incluimos otros aspectos como son: stars, forks, commits, colaboradores, licencia y el size, que nos pueden ofrecer información relevante sobre las tendencias que marcan los repositorios que tienen diagramas UML frente al resto de repositorios que no tienen diagramas UML.
 
 
-\section{¿Qué es un UML?} % título de sección (se muestra)
+\section{¿Qué es un diagrama UML?} % título de sección (se muestra)
 \label{sec:qué es un UML} % identificador de sección (no se muestra, es para poder referenciarla)
 
-A partir de lo expuesto anteriormente es necesario explicar qué es un UML y el porqué de nuestro interés por este lenguaje de modelado.
+A partir de lo expuesto anteriormente es necesario explicar qué es un diagrama UML y el porqué de nuestro interés por este lenguaje de modelado.
 
 
 Debido a la creciente complejidad de los sistemas de software aparece la necesidad de definir modelos que faciliten la tarea de diseño y modelado de estos. 
@@ -323,7 +341,7 @@ Además, permiten analizar y diseñar un sistema de forma que se evalue la viabi
 Aunque los modelos UML principalmente se utilizan en el ámbito de desarrollo de software, también se utilizan en otros contextos como en modelar y representar los procesos de negocio, como los flujos de trabajo, las tareas, etc., lo que ayuda a visualizar y analizar procesos empresariales.
 
 
-Fue creado en la década de 1990 por un grupo de expertos en software y fue respaldado por el OMG (Object Management Group) en el año 1997 como el estándar de facto para el modelado orientado a objetos de sistemas informáticos. 
+UML fue creado en la década de 1990 por un grupo de expertos en software y fue respaldado por el OMG (Object Management Group) en el año 1997 como el estándar de facto para el modelado orientado a objetos de sistemas informáticos. 
 Desde entonces, ha sido ampliamente adoptado en la industria del software y es utilizado por desarrolladores, arquitectos de software, analistas de sistemas y otros profesionales relacionados con la ingeniería de software. 
 
 
@@ -337,28 +355,27 @@ En la figura \ref{fig:diagrama-uml} vemos un ejemplo de un diagrama UML; estos a
 \end{figure}
 
 
-
 \section{Estructura de la memoria}
 \label{sec:estructura}
 
-Describiremos la estructura de la memoria, exponiendo el contenido de cada uno de los capítulos, proporcionando así una guía organizada del trabajo de fin de grado para una mejor lectura y comprensión de este.
+A continuación, describimos la estructura de la memoria, exponiendo el contenido de cada uno de los capítulos, proporcionando así una guía organizada del trabajo de fin de grado para una mejor lectura y comprensión de este.
 
 \begin{itemize}
   
-  \item \textbf{Capítulo~\ref{chap:introducción}: Introducción.} En esta sección se describe(en que consiste el proyecto) el contexto del proyecto, la motivación personal que ha llevado a realizarlo y la estructura de la memoria. 
+  \item \textbf{Capítulo~\ref{chap:introducción}: Introducción.} En este capítulo se describe en qué consiste el proyecto, la motivación personal que ha llevado a realizarlo y la estructura de la memoria. 
 
-  \item \textbf{Capítulo~\ref{chap:objetivos}: Objetivos.} En esta sección se establece el objetivo general que se pretende alcanzar con este proyecto. 
+  \item \textbf{Capítulo~\ref{chap:objetivos}: Objetivos.} En este capítulo se establece el objetivo general que se pretende alcanzar con este proyecto. 
   Así como los objetivos específicos necesarios que van a guiar nuestro proyecto y la planificación de dichos objetivos(de todo el proyecto). 
   
-  \item \textbf{Capítulo~\ref{chap:estado}: Estado del arte.} En esta sección se proporciona información detallada sobre el diseño, las características y los usos de cada una de las tecnologías usadas en el proyecto.  
+  \item \textbf{Capítulo~\ref{chap:estado}: Estado del arte.} En este capítulo se proporciona información detallada sobre el diseño, las características y los usos de cada una de las tecnologías usadas en el proyecto.  
   
-  \item \textbf{Capítulo~\ref{chap:diseño}: Diseño e implementación.} En esta sección se detallan las fases que se han llevado a cabo para realizar el análisis de estudio. 
+  \item \textbf{Capítulo~\ref{chap:diseño}: Diseño e implementación.} En este capítulo se detallan las fases que se han llevado a cabo para realizar el análisis de estudio. 
   También se describe la arquitectura general del proyecto, los procedimientos utilizados para la recolección y el almacenamiento de los datos y la descripción del análisis de los datos.
   %  Discusión de las limitaciones del diseño e implementación??
 
-  \item \textbf{Capítulo~\ref{chap:resultados}: Resultados.} En esta sección se realiza una descripción detallada de los datos recopilados, de los análisis estadísticos realizados, de los resultados obtenidos en el análisis y ; además, se realiza una conclusión de dichos resultados.
+  \item \textbf{Capítulo~\ref{chap:resultados}: Resultados.} En este capítulo se realiza una descripción detallada de los datos recopilados, de los análisis estadísticos realizados, de los resultados obtenidos en el análisis y ; además, se realiza una conclusión de dichos resultados.
  
-  \item \textbf{Capítulo~\ref{chap:conclusiones}: Conclusiones.} En esta sección se presenta un resumen de los resultados obtenidos y de las conclusiones a las que se ha llegado. 
+  \item \textbf{Capítulo~\ref{chap:conclusiones}: Conclusiones.} En este capítulo se presenta un resumen de los resultados obtenidos y de las conclusiones a las que se ha llegado. 
   También se enumeran los conocimientos adquiridos durante la carrera que se han aplicado en este proyecto y los aprendidos durante la realización de este.
   Por último, se comentan futuros trabajos o mejoras para el estudio de los desarrolladores que utilizan archivos UML. 
   
@@ -383,7 +400,7 @@ En este capítulo, se presentan los objetivos del trabajo de fin de grado y los 
 \section{Objetivo general} % título de sección (se muestra)
 \label{sec:objetivo-general} % identificador de sección (no se muestra, es para poder referenciarla)
 
-El objetivo general de este Trabajo Fin de Grado consiste en analizar repositorios de la plataforma de Github para observar las diferencias y similitudes que existen entre los repositorios que usan ficheros UML frente al resto de repositorios.
+El objetivo general de este Trabajo Fin de Grado consiste en analizar repositorios de la plataforma GitHub para observar las diferencias y similitudes que existen entre los repositorios que contienen diagramas UML frente al resto de repositorios que no contienen diagramas UML.
 
 \section{Objetivos específicos}
 \label{sec:objetivos-especificos}
@@ -394,8 +411,8 @@ El objetivo general de este Trabajo Fin de Grado consiste en analizar repositori
 Para lograr el objetivo general de este proyecto se han establecido los siguientes objetivos específicos:
 
 \begin{itemize}
-  \item Estudiar y probar el funcionamiento de Perceval
-  \item Seleccionar una serie de repositorios de GitHub y almacenarlos en una estructura JSON.
+  \item Estudiar y probar el funcionamiento de la herramienta Perceval.
+  \item Seleccionar una serie de repositorios de GitHub y almacenar cada uno de ellos en una estructura JSON.
   \item Observar los datos amacenados en los archivos JSON obtenidos e identificar los datos que son de interés para comparar en nuestro estudio.
   \item Desarrollar los programas de extracción y almacenamiento de los datos escogidos en MongoDB.  
   \item Realizar el análisis de los resultados obtenidos para determinar las similitudes y diferencias más relevantes entre los repositorios que tienen archivos UML y los que no.
@@ -405,27 +422,13 @@ Para lograr el objetivo general de este proyecto se han establecido los siguient
 \section{Planificación temporal}
 \label{sec:planificacion-temporal}
 
-% A mí me gusta que aquí pongáis una descripción de lo que os ha llevado realizar el trabajo. Hay gente que añade un diagrama de GANTT.
-% Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 meses) y a qué nivel de esfuerzo (p.ej., principalmente los fines de semana).
-
-% (EL 26 de ABRIL DEL AÑO PASADO ABANDONÉ EL OTRO TFG) [LOS DESARROLLADORES QUE TOCAN UML SON DIFERENTES DEL RESTO]
-% [Como respondería a la pregunta y ver que información podría conseguir -- ¿LOS QUE TOCAN UML, TOCAN OTROS TIPOS DE FICHEROS?, ¿ES EL QUE MÁS COMMIT HACE? ¿HACE MENOS COMMITS? ¿HACE DOCUMENTACIÓN? ]
-% [26 abril- 27 de junio documentación perceval, base de datos y pensar en los puntos a analizar de un repositorio ]
-% ( en mayo y junio se me juntaron las últimas entregas de trabajos y exámenes 22/6/22)
-% [27 junio - 27 julio]
-% [27 julio- 16 septiembre]
-% [ 16 septiembre -16 de diciembre]
-% [16 diciembre - 6 febrero]
-% [6 febrero -28 febrero empezar a escribir la memoria]
-
-
 A finales de abril del año pasado empecé mi proyecto de fin de grado. 
 El desarrollo de este trabajo comenzó en mayo de 2022, cuando el profesor Gregorio Robles Martínez me sugirió la idea del proyecto que he llevado a cabo. 
 
 
 Durante los meses de mayo y junio empecé a documentarme sobre Lindholmen dataset\footnote{\url{http://models-db.com/}}, que es una base de datos con los repositorios que utilizan diagramas UML en GitHub.
 De la misma manera, obtuve la información necesaria sobre las herramientas Grimoire Perceval\footnote{\url{https://github.com/chaoss/grimoirelab-perceval}} y GitHub API\footnote{\url{https://docs.github.com/es/rest}}, las cuales se utilizan para analizar repositorios y extraer datos de estos. 
-Después del estudio y análisis de estas herramientas, me decanté por Perceval, ya que con ella se obtienen más datos de Github.
+Después del estudio y análisis de estas herramientas, me decanté por Perceval, ya que con ella se obtienen más datos de GitHub.
 
 
 De julio a septiembre, empecé a descargar y almacenar en MongoDB algunos de los repositorios obtenidos en Lindholmen dataset usando Perceval para ver qué datos se obtenían y cuales eran más relevantes para, posteriormente, realizar el análisis.
@@ -442,8 +445,8 @@ Esto supuso una mejora en el proceso de desarrollo del proyecto, ya que aceleró
 Para ello, decidí crear un programa que ejecutase el proceso de mongoimport de cada uno de los archivos que había descargado. 
 
 
-(Entre marzo y abril, inicié el proceso de escritura de la memoria del proyecto...)
-
+Entre marzo y abril, inicié el proceso de escritura de la memoria del proyecto y a la par realicé el programa para el análizar los datos obtenidos. 
+Por último, durante los meses de mayo y junio desarrollé los programas para la generación de las gráficas con las que visualizar los resultados obtenidos y poder sacar las conclusiones, y finalicé el proceso de redacción de la memoria. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -454,26 +457,26 @@ Para ello, decidí crear un programa que ejecutase el proceso de mongoimport de 
 \chapter{Estado del arte}
 \label{chap:estado}
 
-En este apartado, se proporciona una comprensión completa y actualizada de las herramientas y librerías usadas en el Trabajo Fin de Grado.
-Esta exposición nos da una visión de la metodología empleada a lo largo de todo el proyecto.
+En este capítulo, se proporciona una comprensión completa y actualizada de las herramientas y librerías usadas en el Trabajo Fin de Grado.
+Esta exposición nos da una visión de las tecnologías empleadas en el proyecto.
 
 \section{Tecnologías y herramientas} % título de sección (se muestra)
 \label{sec:tecnologías y herramienta}
 
-\subsection{Github} % título de sección (se muestra)
+\subsection{GitHub} % título de sección (se muestra)
 \label{sec:github} % identificador de sección (no se muestra, es para poder referenciarla)
 
-Github es una plataforma web de desarrollo colaborativo de software\footnote{\url{https://github.com/}} que permite la colaboración y el almacenamiento de proyectos de código abierto o cerrado.
+GitHub es una plataforma web de desarrollo colaborativo de software\footnote{\url{https://github.com/}} que permite la colaboración y el almacenamiento de proyectos de código abierto o cerrado.
 En esta plataforma, los usuarios pueden crear y unirse a proyectos para compartir ideas, discutir posibles soluciones y colaborar entre ellos para mejorar dichos proyecto.
-La función principal de Github~\cite{astigarraga2022se} es que los usuarios puedan trabajar juntos en un proyecto desde cualquier lugar y en cualquier momento, ya que, registra el desarrollo de los proyectos de forma remota en la nube y no requiere de una infraestructura de hardware específica.
-Github ofrece una serie de bibliotecas para ayudar a los desarrolladores en su trabajo y herramientas para la gestión de versiones del software, la gestión de problemas, la revisión de código, etc. 
-Github integra la funcionalidad de Git que es un sistema de control de versiones distribuido.
+La función principal de GitHub~\cite{astigarraga2022se} es que los usuarios puedan trabajar juntos en un proyecto desde cualquier lugar y en cualquier momento, ya que, registra el desarrollo de los proyectos de forma remota en la nube y no requiere de una infraestructura de hardware específica.
+GitHub ofrece una serie de bibliotecas para ayudar a los desarrolladores en su trabajo y herramientas para la gestión de versiones del software, la gestión de problemas, la revisión de código, etc. 
+GitHub integra la funcionalidad de Git que es un sistema de control de versiones distribuido.
 Se dice que es ``distribuido'' porque git tiene un historial completo de cambios, en el cual se pueden revisar los cambios realizados en el código a lo largo del tiempo. 
 Esto permite ver las modificaciones de cada desarrollador e incluso deshacerlas si es necesario. Además permite el trabajo de varios desarrolladores en un mismo proyecto.
 En resumen, GitHub es una plataforma que se ha convertido en una herramienta muy popular y esencial en la comunidad de desarrollo de software, ya que permite colaborar y trabajar en equipo para crear proyectos de alta calidad.
  
 
-\subsection{Mongodb} % título de sección (se muestra)
+\subsection{MongoDB} % título de sección (se muestra)
 \label{sec:mongodb} % identificador de sección (no se muestra, es para poder referenciarla)
 
 MongoDB\footnote{\url{https://www.mongodb.com/}} es un sistema de gestión de bases de datos no relacional (NoSQL) de código abierto. 
@@ -571,9 +574,9 @@ Además, utiliza una máquina virtual de Linux integrada que ofrece un rendimien
 \subsection{LaTex} % título de sección (se muestra)
 \label{sec:latex} % identificador de sección (no se muestra, es para poder referenciarla)
 
-LaTeX\footnote{\url{https://es.overleaf.com/}} es un sistema de composición de (textos)(documentos), el cual, está formado por un conjunto de macros TeX. 
+LaTeX\footnote{\url{https://es.overleaf.com/}} es un sistema de composición de (textos)(documentos) formado por un conjunto de macros TeX. 
 Fue desarrollado por Leslie Lamport en 1984, con el fin de facilitar el uso del lenguaje de composición tipográfica de textos(documentos) TeX.
-Tex, también es un sistema de composición tipográfica de textos que usa funciones avanzadas de automatización para generar documentos en los cuales se usan textos y fórmulas matemáticas con un determinado estándar.
+TeX, también es un sistema de composición tipográfica de textos que usa funciones avanzadas de automatización para generar documentos en los cuales se usan textos y fórmulas matemáticas con un determinado estándar.
 Fue desarrollado por Donald E. Knuth en 1978 como herramienta para la creación de textos que contengan fórmulas matematicas complejas.
 
 
@@ -601,8 +604,8 @@ Perceval\footnote{\url{https://github.com/chaoss/grimoirelab-perceval}} es uno d
 Este proyecto fue desarrollado para ayudar a investigadores en el análisis de repositorios de software y está formado por un conjunto de herramientas gratuitas, libres y de código abierto. 
 
 
-GrimoireLAb es el resultado de más de 10 años de desarrollo de Bitergia, grupo de investigación de software libre de la URJC y varios colaboradores. 
-Cada herramienta se encuentra disponible en un repositorio distinto en Github y se puede instalar fácilmente como un módulo de paquetes de Python.
+GrimoireLAb es el resultado de más de 10 años de desarrollo de Bitergia, empresa que emergió del grupo de investigación de software libre de la URJC y varios colaboradores. 
+Cada herramienta se encuentra disponible en un repositorio distinto en GitHub y se puede instalar fácilmente como un módulo de paquetes de Python.
 Dichas herramientas se crearon para la recopilación automática e incremental de información de cualquier fuente de datos, el enriquecimiento de estos con información adicional y el almacenamiento y visualización de estos datos. 
 
 
@@ -611,7 +614,6 @@ Perceval, como ya hemos mencionado, es uno de estos componentes que funciona com
 Está diseñado para recuperar datos relacionados con el desarrollo de software de diferentes fuentes.
 Estas fuentes pueden ser de gestión de problemas o tareas, de gestión o revisión de código fuente, de foros o listas de correo, de wikis, entre otros.
 Posteriormente, se guarda la información obtenida en una base de datos en un formato estandarizado.
-% (Además, proporciona una interfaz de línea de comandos (CLI) y una API para interactuar con la información recopilada.)
 Los datos que obtenemos con Perceval se almacenan como diccionarios de Python o como documentos JSON como el que mostramos a continuación: 
 
 {\footnotesize
@@ -645,11 +647,11 @@ Con PyMongo, se pueden realizar una variedad de tareas en MongoDB, como crear y 
 
 \subsection{Subprocess} % título de subsección (se muestra)
 \label{sec:subprocess} % identificador de subsección (no se muestra, es para poder referenciarla)
-El módulo ``subprocess''\footnote{\url{https://docs.python.org/es/3/library/subprocess.html}} (subproceso), permite ejecutar un proceso que se encuentra dentro de un script de Python a la vez que se ejecuta dicho script.
+El módulo ``subprocess''\footnote{\url{https://docs.python.org/es/3/library/subprocess.html}} (subproceso) permite ejecutar un proceso que se encuentra dentro de un script de Python a la vez que se ejecuta dicho script.
 Esto es posible gracias a que este módulo interactúa con el sistema operativo haciendo posible ejecutar y administrar subprocesos directamente desde Python. 
 Este módulo proporciona varias funciones y clases para interactuar con procesos externos con los cuales los desarrolladores pueden ejecutar comandos en la línea de comandos del sistema operativo y manipular la entrada y salida de estos procesos.
 
-\subsection{Mongoimpot} % título de subsección (se muestra)
+\subsection{Mongoimport} % título de subsección (se muestra)
 \label{sec:mongoimport} % identificador de subsección (no se muestra, es para poder referenciarla)
 
 \emph{mongoimport}\footnote{\url{https://www.mongodb.com/docs/database-tools/mongoimport/}} es una herramienta que forma parte del paquete ``MongoDB Database Tools''
@@ -658,14 +660,15 @@ Con \emph{mongoimport}, se pueden importar grandes cantidades de datos de manera
 El comando que se ha usado para importar los archivos es el siguiente:
 
 \begin{verbatim}
-mongoimport --db nombre_base_de_datos --collection nombre_coleccion --file dirección_archivo_a_importar
+mongoimport --db nombre_base_datos --collection nombre_coleccion
+--file dirección_archivo_a_importar
 \end{verbatim}
 
 \subsection{Matplotlib} % título de subsección (se muestra)
 \label{sec:matplotlib} % identificador de subsección (no se muestra, es para poder referenciarla)
 
 Matplotlib\footnote{\url{https://matplotlib.org/}} es una librería de código abierto de Python que se usa para crear gráficos estadísticos, figuras interactivas, coordenadas no estructuradas, gráficos 3D y otros tipos de visualización de datos.
-Esta librería proporciona una amplia gama de herramientas, la mayoría se ofrecen como funciones del módulo ``pyplot'', pero también integra otras librerías de Python como NumPy y Pandas, que facilita el trabajo con grandes conjuntos de datos y su visualización.
+Esta librería proporciona una amplia gama de herramientas; la mayoría se ofrecen como funciones del módulo ``pyplot'', pero también integra otras librerías de Python como NumPy y Pandas, que facilita el trabajo con grandes conjuntos de datos y su visualización.
 Gracias a todas estas herramientas, Matplotlib permite crear gráficos de alta calidad con una sintaxis simple, por lo que se ha convertido en una opción muy popular para la generación de gráficas.
 
 
@@ -694,16 +697,32 @@ A continuación, describiremos los métodos y herramienta utilizados para llevar
 Esto permite a los lectores entender cómo se ha desarrollado el proyecto para realizar el análisis de estudio.
 En este capítulo se detallan las fases del proyecto, las decisiones y justificaciones de las metodologías escogidas y el diseño e implementación para que otros puedan realizar el mismo análisis.
 
-\section{Arquitectura general} 
-\label{sec:arquitectura}
+\section{Proceso} 
+\label{sec:proceso}
 
-En la figura~\ref{fig:arquitectura} mostraremos la arquitectura de este proyecto se divide en varias fases. 
-En la primera fase se realiza la recopilación de datos de GitHub mediante la herramienta de Perceval. 
-Con esta herramienta, nos conectamos a a la API de Github para extraer los datos con información de los repositorios y los commits ej documentos JSON.
-En la segunda fase procesaremos estos datos antes de almacenarlos en la base de datos MongoDB, de tal forma que nos quedamos con los datos que nos interesan para el análisis que vamos a realizar y descartamos el resto de datos.
+En la figura~\ref{fig:arquitectura} se observan las fases en las cuales se divide este proyecto\footnote{\url{https://github.com/carmengl98/extraccion_analisis_repos}}. 
+En la primera fase se realiza la recopilación de datos de GitHub mediante la herramienta de Perceval\footnote{\url{https://perceval.readthedocs.io/en/latest/perceval/perceval-backends.html}}. 
+Esta herramienta nos permite conectamos a la API de GitHub para extraer los datos en documentos JSON con la información de los repositorios y los commits realizados en estos mismos repositorios.
+Perceval~\cite{duenas2018perceval} cuenta con una estructura formada por 3 componentes que interactuan entre ellos para facilitar la recuperación de datos de diferentes fuentes de desarrollo de software.
+A continuación, vamos a describir cómo funciona la interacción entre los componentes de esta estructura.
+
+
+``The CommandLine'' o la línea de comandos es uno de los componentes de Perceval que permite a los usuarios interactuar con esta herramienta.
+A través de la línea de comandos se especifica el backend con el cual se va a interactuar, además se pueden especificar el tipo de fuentes de datos, opciones de configuración e incluir argumentos para personalizar la recuperación de datos como filtros de fecha, límite de elementos a recuperar, configuraciones de salida, entre otras.
+Estos argumentos adicionales brindan a los usuarios mayor flexibilidad y control al utilizar el backend a través de la interfaz de línea de comandos, permitiéndoles personalizar aún más la forma en que interactúan con Perceval.
+
+
+Otro de los componentes es el ``cliente'' que se encarga de interpretar los argumentos y opciones de configuración proporcionadas a través de la línea de comandos y de gestionar la interacción entre esta y el backend correspondiente.
+Este también es responsable de manejar tanto las complicaciones asociadas a la consulta de la fuente de datos como los problemas de conexión con fuentes de datos remotas y ofrecer soluciones específicas en caso de ser necesarias.
+ 
+
+El tercer y último componente es el ``backend'' que se encarga de organizar la implementación de mecanismos incrementales y de almacenamiento en caché para mejorar la eficiencia y la velocidad de recopilación de una fuente de datos específica.
+Perceval ofrece varios backend diseñados para adaptarse a los requisitos específicos de cada fuente de datos correspondiente; sin embargo estos backends tienen características comunes como la incrementalidad y el almacenamiento en caché.
+
+
+En la segunda fase procesaremos estos datos, antes de almacenarlos en la base de datos MongoDB, de tal forma que nos quedemos con los datos que nos interesan para el análisis que vamos a realizar y descartemos el resto de datos.
 En la tercera fase realizaremos un análisis estadístico de los datos recopilados. 
 
-el archivo JSON generado por Perceval se envía al backend para su almacenamiento y análisis posterior. El backend puede ser una base de datos, un sistema de análisis de datos o cualquier otro sistema que el usuario haya configurado para manejar la información recopilada.
 \begin{figure}
   \centering
   \includegraphics[width=16cm, keepaspectratio]{img/Arquitectura_general.png}
@@ -788,11 +807,11 @@ Si este comando devuelve la versión de GrimoireLab Perceval instalada, entonces
 \label{sec:recopilación de datos}
 
 En esta parte del proyecto se lleva a cabo la recopilación de una lista de repositorios que utilizan archivos UML y otra en las que no se utilizan archivos UML.
-Para ello se recurre a Lindholmen dataset que proporciona a los investigadores listas de proyectos de código abierto que usan archivos UML y que se encuentran distribuidos en repositorios de GitHub.
+Para ello se recurre al Lindholmen dataset que proporciona a los investigadores listas de proyectos de código abierto que usan archivos UML y que se encuentran distribuidos en repositorios de GitHub.
 
 A partir de este conjunto de datos se descarga el archivo ``UMLFilesList'' para obtener una lista de los repositorios que hacen uso de archivos UML.
 Este archivo proporciona los enlaces directos a los archivos UML de cada uno de los repositorios, lo que permite verificar que dichos archivos siguen formando parte de dichos repositorios.
-Con estos enlaces nos cercioramos de que los archivos continuen, cada uno de ellos, siendo parte de los diferentes proyectos, los cuales posteriormente procederemos a analizar. 
+Con estos enlaces nos cercioramos de que los archivos continuen, cada uno de ellos, siendo parte de los diferentes proyectos, que posteriormente procederemos a analizar. 
 
 
 Para obtener la lista de repositorios en los que no se usen archivos UML se procede a revisar los seguidores de los repositorios obtenidos anteriormente y se selecionan de forma aleatoria algunos de ellos para crear dicha lista.
@@ -810,7 +829,7 @@ Posteriormente, Perceval procesa esta información y la almacena en documentos.
   \caption{Descripción general de Perceval.}\label{fig:perceval-json}
 \end{figure}
 
-En este proyecto se eligió como fuente de datos Github. 
+En este proyecto se eligió como fuente de datos GitHub. 
 Partiendo de esta fuente de datos a Perceval se le pasaron los siguientes parámetros: el nombre del repositorio o dirección URL, el nombre y tipo de archivo con el que queremos que se guarden los documentos generados y, además, según el comando usado obtendremos los datos de los repositorios o de otras categorías como, en este caso, los commits, u otras como las issues, los pull request...
 \begin{verbatim}
 perceval github --category repository grimoirelab Perceval > repo.json
@@ -820,7 +839,7 @@ perceval git https://github.com/grimoirelab/perceval.git > commit.json
 
 Gracias a esta herramienta, se pudo obtener información detallada de los repositorios y los commits, lo que resultó fundamental para el desarrollo de este proyecto de investigación.
 Estos datos se guardaron en archivos JSON, puesto que es una estructura de datos ampliamente utilizada y fácil de comprender.
-Para llevar a cabo esta tarea usamos una conexion WLS en la cual se instaló tanto Ubuntu como la librería de Perceval; ya que en Windows daba problemas.
+Para llevar a cabo esta tarea usamos una conexion WLS en la que se instaló tanto Ubuntu como la librería de Perceval; ya que en Windows daba problemas.
 La intalación tanto de WLS como de Ubuntu y Perceval se han explicado en el apartado \ref{sec:procedimiento de instalación}.
 
 Después de finalizar el proceso de obtención de los datos de los repositorios se procedió a almacenarlos en la base de datos MongoDB.
@@ -828,8 +847,10 @@ Para este fin, se buscó una forma de introducir los archivos JSON de forma auto
 Para ello, se uso el módulo de python \emph{subprocess} junto con \emph{mongoimport} para desarrollar los ficheros que introducen todos los documentos JSON, obtenidos anteriormente, para crear la base de datos que vamos a estudiar.
 En estos fichero se ejecuta \emph{mongoimport} con cada uno de los archivos JSON obtenidos, tanto de los de los repositorios como de los commits con el comando que se muestra a continuación:
 \begin{verbatim}
-  mongoimport --db project --collection Repositories --file "...\repository\repoFile.json"
-  mongoimport --db project --collection Commits --file "...\commit\commitFile.json"
+  mongoimport --db project --collection Repositories --file
+   "...\repository\repoFile.json"
+  mongoimport --db project --collection Commits --file 
+  "...\commit\commitFile.json"
 \end{verbatim}
 
 
@@ -857,7 +878,7 @@ Por esta razón, se decidió almacenarlos en MongoDB que es una base de datos No
   \caption{Descripción de la fase de procesamiento de datos.}\label{fig:procesamiento_datos}
 \end{figure}
 
-Para almacenar estos datos se desarrollarón dos ficheros que se conectan a MongoDB y, a partir de aquí, se crea en cada uno de ellos una nueva coleción con la que se introducen los datos que le pasamos.
+Para almacenar estos datos se crearon dos ficheros que se conectan a MongoDB y, a partir de aquí, se crea en cada uno de ellos una nueva coleción con la que se introducen los datos que le pasamos.
 A la hora de importar los datos se decidió usar una estructura de diccionario para almacenar los datos extraídos de los repositorios y otra para almacenar los datos de los commits de dichos repositorios.
 Las siguientes estructuras diccionario han sido usadas para guardar la información que se usará en el posterior análisis. 
 
@@ -900,10 +921,10 @@ Esta en cambio se usó para guardar los datos obtenidos de los commits:
 }
 
 
-A continuación, se explicaran los datos extraídos de los repositorios y los commits que se han guardado en esta estructura:
+A continuación, se explicarán los datos extraídos de los repositorios y los commits que se han guardado en esta estructura:
 \begin{itemize}
   \item ``url'': se refiere a la ubicación del repositorio.
-  Esta información se usa cuando un usuario quiere clonar un repositorio de Github.
+  Esta información se usa cuando un usuario quiere clonar un repositorio de GitHub.
 
   \item ``typeRepository'': en este campo se indica si en dicho repositorio se usan archivos UML o no.
   Por tanto, los valores de este campo pueden ser ``UML'', si en el proyecto existen archivos de este tipo, o ``NOUML'', si en el proyecto no existen archivos UML.
@@ -920,7 +941,7 @@ A continuación, se explicaran los datos extraídos de los repositorios y los co
   Los valores pueden ser, por ejemplo, ``Python'', ``Java'', ``JavaScript'', ``C++'', ``Ruby'', entre otros.
   
   \item ``license'': en este campo se muestra la licencia bajo la cual está disponible el código fuente del proyecto.
-  Para que un repositorio sea verdaderamente de código abierto, tendrá que generarse una licencia. 
+  Para que un repositorio sea verdaderamente de código abierto, ha de tener una licencia. 
   Con esta licencia cada propietario define el marco legal en el que se puede usar, distribuir o modificar el proyecto.
   Algunas licencias pueden ser más restrictivas que otras en cuanto a los derechos que otorgan a los usuarios y desarrolladores de software.
   
@@ -929,7 +950,7 @@ A continuación, se explicaran los datos extraídos de los repositorios y los co
   Las organizaciones en GitHub están formadas por grupos de personas que trabajan juntas en un proyecto o en varios proyectos relacionados.
   
   \item ``fork'': se indica si ese repositorio es una copia de otro repositorio existente en GitHub. 
-  Los valores de este campo pueden ser ``true'', que significa que el repositorio es una bifurcación o ``fork'' de otro repositorio en GitHub o ``false'', que significa que el repositorio no es una copia de ningún otro repositorio de Github.
+  Los valores de este campo pueden ser ``true'', que significa que el repositorio es una bifurcación o ``fork'' de otro repositorio en GitHub o ``false'', que significa que el repositorio no es una copia de ningún otro repositorio de GitHub.
   Los usuarios de GitHub utilizan los ``fork'' para crear nuevas versiones de un proyecto existente para agregar nuevas funcionalidades, corregir errores, o personalizar un proyecto original.
   Cada vez que se crea un ``fork'', se crea una copia completa del repositorio original en el que se pueden realizar cambios sin afectar al repositorio original.
   
@@ -955,7 +976,7 @@ A continuación, se explicaran los datos extraídos de los repositorios y los co
 Con el análisis de datos, que es el objetivo final del proyecto, se pretende conocer las similitudes y diferencias entre los desarrolladores que utilizan archivos UML y el resto de los desarrolladores que no utilizan este tipo de archivos.
 
 
-En esta sección se describe el proceso de análisis de los datos obtenidos, a partir de Perceval, de los distintos repositorios de Github. 
+En esta sección se describe el proceso de análisis de los datos obtenidos, a partir de Perceval, de los distintos repositorios de GitHub. 
 Se comenzó por la revisión y limpieza de los datos, eliminando aquellos que decidimos no incluir, ya que no se consideraban datos relevantes para el análisis que pretendemos hacer. 
 A partir de aquí, se procedió a la exploración de los datos, mediante el cálculo de estadísticos descriptivos, para cada una de las variables de interés. 
 Para ello se realizó un fichero en el que se ejecuta el análisis de los datos extraídos usando Python, observando así las diferencias entre los desarrolladores que utilizan UML y el resto.
@@ -977,7 +998,7 @@ Con esta información se realizará la media de estos datos siguiendo la siguien
 
 \subsection{Licencia del repositorio} % título de subsección (se muestra)
 \label{sec:licencia del repositorio}
-Lo primero que nos interesa conocer es el número de archivos que tienen licencia y cuáles no.
+También nos interesa conocer el número de repositorios que tienen licencia y cuáles no.
 Para ello se realiza un proceso de análisis estadístico de los repositorios para saber si tienen o no licencia.
 Para cada repositorio, se ha accedido al valor ``Licencia'' de los documentos JSON obtenidos con Perceval y se ha registrado la información correspondiente.
 
@@ -998,19 +1019,18 @@ Después de recoger los resultados de esta función comparativa, se procede a re
 \[{Licencia} = \frac{1}{200} \sum_{i=1}^{200} x_i\]
 
 
-
 \subsection{Tipo de propietario del repositorio} % título de subsección (se muestra)
 \label{sec:tipo de propietario del repositorio}
 
-Otro de los datos relevantes que nos interesa conocer es el tipo de propietario de los repositorios, si usuario único o bien un usuario que es una organización. 
+Otro de los datos relevantes que nos interesa saber es el tipo de propietario de los repositorios, si usuario individual o bien un usuario que es una organización. 
 Para ello se procede a estudiar el promedio de los tipos de propietarios de los desarrolladores UML y del resto de los desarrolladores.
-Los posibles tipos de propietarios que puede haber son ``User'', si es un usuario único o ``Organization'' si se trata de una organización compuesta por varios usuarios.
+Los posibles tipos de propietarios que puede haber son ``User'', si es un usuario individual o ``Organization'' si se trata de una organización compuesta por varios usuarios.
 Esta información se muestra también en los documentos JSON obtenidos de los repositorios.
 
 \begin{equation}
   Propietario =
   \begin{cases}
-  User, & \text{si el propietario del repositorio es un usuario} \\
+  User, & \text{si el propietario del repositorio es un usuario individual} \\
   Organization, & \text{si el propietario del repositorio es una organización}
   \end{cases}
 \end{equation}
@@ -1025,9 +1045,8 @@ A continuación se muestra la fórmula usada para realizar las medias de los rep
 \subsection{Número de fork por repositorio} % título de subsección (se muestra)
 \label{sec:Número de fork por repositorio}
 
-Un tercer tipo de dato que nos interesa en este análisis es saber si se han hecho bifurcaciones de los respositorios.
-Para obtener dicha información se usará la función, que indicamos más adelante, que nos permitirá comprobar si en los repositorios, que se han seleccionado, se han realizado fork o no.
-En los datos extraídos con Perceval de los repositorios se encuentra el campo ``forks'' con el cual se comprueba el número de bifurcaciones (``forks'') del repositorio.
+Otro de los datos que nos interesa en este análisis es conocer si se han hecho bifurcaciones de los respositorios.
+En los datos extraídos de los repositorios con Perceval se encuentra el campo ``forks'', con el cual se comprueba el número de bifurcaciones (``forks'') del repositorio.
 En caso de que el valor de este campo sea distinto de ``0'' , se habrán realizado ``forks''; en caso contrario, no se habrán realizado ``forks'' en el repositorio.
 
 
@@ -1038,36 +1057,31 @@ A continuación se muestra la fórmula usada para realizar la media del número 
 \[{Fork} = \frac{1}{200} \sum_{i=1}^{200} x_i\]
 
 
-\subsection{Tamaño del repositorio} % título de subsección (se muestra)
-\label{sec:tamaño del repositorio}
-Este dato se corresponde con un tamaño aproximado de un repositorios en kilobytes; usando los clasificadores mayor que, menor que clasificaremos los repositorios según su tamaño aproximado:
+\subsection{Número de stars por repositorio} % título de subsección (se muestra)
+\label{sec:número de stars por repositorio}
 
-% \begin{itemize}
-%   \item Si ``Size < 50'' :
-%   \item Si ``Size >= 30000'' :
-%   \item Si  `Size == 1000 '' :
-% \end{itemize}
-
-\subsection{Número de Stars por repositorio} % título de subsección (se muestra)
-\label{sec:número de Stars por repositorio}
-
-El último dato que nos interesa de los extraídos en los repositorios es el del número de ``stars'' por repositorio.
-Este número nos dice la cantidad de usuarios que han marcado dicho repositorio como favorito y por tanto nos indica la popularidad de éste dentro de la comunidad. 
-Para obtener el número  de ``stars'' por repositorio buscaremos el campo ``stargazers count'' en los datos extraídos mediante Perceval. 
-Después de realizar una recopilacción con el número se ``stars'' por repositorio, se realizará la media entre todos los repositorios.
+Otro dato significativo que nos interesa de los extraídos en los repositorios es el del número de ``stars'' por repositorio.
+Este número nos muestra la cantidad de usuarios que han marcado dicho repositorio como favorito y por tanto nos indica la popularidad de éste dentro de la comunidad. 
+Para obtener el número de ``stars'' por repositorio buscaremos el campo ``stargazers count'' en los datos extraídos mediante Perceval. 
+Después de realizar una recopilacción con el número de ``stars'' por repositorio, se realizará la media entre todos los repositorios.
 
 \[{Stars} = \frac{1}{200} \sum_{i=1}^{200} x_i\]
 
 
+\subsection{Tamaño del repositorio} % título de subsección (se muestra)
+\label{sec:tamaño del repositorio}
+Este dato informa sobre el tamaño aproximado de un repositorio en kilobytes. 
+Para ello, utilizaremos dos diagramas de caja para analizar y contrastar el tamaño de los repositorios, lo que nos permitirá obtener información descriptiva más completa, tanto de la distribución de los tamaños de los repositorios con diagramas UML. como de la distribución de los tamaños de los repositorios sin utilizar dichos diagramas.
 
-A continuación, se comentarán los datos utilizados en el análisis que han sido obtenidos desde los commits de los repositorios y los cáculos empleados en cada caso.
-Para analizar los datos obtenidos de los commits calcularemos los diagramas de caja de cada una de las distribuciones de datos obtenidos.
 
-
-Un diagrama de caja es una representación gráfica que muestra la distribución de un conjunto de datos.
-En esta representación gráfica se pueden observar de manera visual varios valores estadísticos como podemos observar en la figura \ref{fig:boxplot}.
+Un diagrama de caja~\cite{neto2017boxplot} es una representación gráfica que muestra la distribución de un conjunto de datos.
+En esta representación gráfica se pueden observar de manera visual varios valores estadísticos, como podemos observar en la figura \ref{fig:boxplot}.
 Estos valores estadísticos que podemos encontrar en un diagrama de caja son: el rango intercuartílico (RIC) que se representa como una caja rectangular y es el rango que abarca el 50\% de los datos, la línea dentro de la caja representa la mediana, 
-los bigotes que se encuentran en los extremos de la caja y los cuales representan los valores máximo y mínimo y , por último, los valores atípicos que se representan mediante puntos colocados por encima del bigote superior o por debajo del bigote inferior.
+los bigotes que se encuentran en los extremos de la caja, los cuales representan los valores máximo y mínimo de los valores de nuestra distribución de datos y, por último, los valores atípicos que se representan mediante puntos colocados por encima del bigote superior o por debajo del bigote inferior.
+Dichos valores atípicos representan valores inusuales dentro de la distribución de datos.
+
+
+Todos estos valores estadísticos nos ayudarán a entender mejor la distribución del tamaño total por repositorio, puesto que se mostrará la media del tamaño por repositorio, la variabilidad que hay en los distintos repositorios, etc.
 
 \begin{figure}
   \centering
@@ -1075,40 +1089,44 @@ los bigotes que se encuentran en los extremos de la caja y los cuales representa
   \caption{Representación de un diagrama de caja.}\label{fig:boxplot}
 \end{figure}
 
+A continuación, se comentarán los datos utilizados en el análisis obtenidos a partir de los commits de los repositorios y los cálculos empleados en cada caso.
+Para analizar los datos extraídos de los commits calcularemos los diagramas de caja para obtener una información visual más descriptiva de cada una de las distribuciones de datos.
+
+
 \subsection{Número de colaboradores por repositorio} % título de subsección (se muestra)
 \label{sec:número de colaboradores por repositorio}
 
 En este caso se va a realizar un diagrama de caja con el conjunto de datos sobre el número de personas que hacen commits por repositorio.
 El número de personas que han realizado commits en un repositorio nos indica si hay una colaboración grande o pequeña en el desarrollo del repositorio.
 Este dato a analizar se obtiene de los documentos JSON extraídos de los commits realizados en cada repositorio, por lo que se realizarán dos diagramas de caja.
-Uno de ellos nos dará una representación visual de la distribución del conjunto del número de colaboradores en repositorios con diagramas UML y el otro nos dará una representación visual de la distribución del conjunto del número de colaboradores en repositorios sin54 diagramas UML.
-Con este tipo de representación se puede observar varios valores estadísticos del conjunto de datos como se ha mencionado anteriormente.
+Uno de ellos nos dará una representación visual de la distribución del conjunto del número de colaboradores en repositorios con diagramas UML y el otro nos dará una representación visual de la distribución del conjunto del número de colaboradores en repositorios sin diagramas UML.
+Con este tipo de representación se puede observar varios valores estadísticos del conjunto de datos, como se ha mencionado anteriormente.
 
 
-Nos fijaremos en la variabilidad de los datos, para ello, se observarán los cuartiles que dividen un conjunto de datos ordenados en cuatro partes iguales.
-El valor del primer cuartil (Q1) divide el conjunto de los datos en el 25\% que contienen los datos más bajos del conjunto, la mediana que divide el conjunto de datos en el 50\% y el tercer cuartil (Q3) que representa el 25\% de los datos con valores más altos.
-Además de observar estos datos, examinaremos el rango en el que se concentran los datos y que se corresponde con el rango intercuartílico (RIC) y se calcula mediante la diferencia entre el tercer cuartil y el primer cuartil (RIC = Q3 - Q1).
+Nos fijaremos en la variabilidad de los datos. Para ello, se observarán los cuartiles que dividen un conjunto de datos ordenados en cuatro partes iguales.
+El valor del primer cuartil (Q1) divide el conjunto de los datos en el 25\% que contienen los datos más bajos de dicho conjunto; la mediana que divide el conjunto de datos en el 50\% y el tercer cuartil (Q3) que representa el 25\% de los datos con valores más altos.
+Además de observar estos datos, examinaremos el rango en el que se concentran los datos que se corresponde con el rango intercuartílico (RIC) y se calcula mediante la diferencia entre el tercer cuartil y el primer cuartil (RIC = Q3 - Q1).
 
 
-Por último, nos fijaremos en los valores atípicos en el conjunto de datos que indican valores inusuales.
+Por último, nos fijaremos en los valores atípicos, en el conjunto de datos que indican valores inusuales.
 Estos valores se calculan siguiendo las siguientes fórmulas que nos dan los valores atípico inferiores al primer cuartil (Q1 - RIC * 1.5)  o los valores superiores al tercer cuartil (Q3 + RIC * 1.5). 
 
 
-% Con todos estos datos estadísticos....
+% Todos estos valores estadísticos nos ayudarán a entender mejor la distribución del número de colaboradores por repositoio, puesto que se mostrará la media de colaboradores por repositoio y la variabilidad que hay en el número de colaboradores.
 
 \subsection{Cantidad total de commits por repositorio} % título de subsección (se muestra)
 \label{sec:cantidad total de commits por repositorio}
 
-Otro dato a analizar es el número total de commits que se han realizadoen cada uno de los repositorios.
-Este dato representa la cantidad de cambios o actualizaciones que se han realizado en el código del proyecto.
-Lo que nos puede dar una idea de si se ha dedicado una gran cantidad de tiempo en un proyecto o no y, por tanto, esto nos dice si el proyecto en sí es grande o no. 
+Por último, analizaremos el número total de commits que se han realizado en cada uno de los repositorios.
+Este dato representa la cantidad de cambios o actualizaciones que se han llevado a cabo en el código del proyecto.
+Lo que nos puede dar una idea de si se ha dedicado una gran cantidad de tiempo en un proyecto o no y, por tanto, esto nos dice si el proyecto en sí es grande o no lo es. 
 
 
-Para examinar el conjunto de datos del número de commits que se realizan en los repositorios que usan archivos UML y los que no los usan, se usará la representación de  los diagramas de caja como se ha hecho en el caso anterior.
-Con esta representación usaremos el conjunto de datos relacionados con el número total de commits de cada repositorio que se encuantran almacenados en los documentos JSON de la base de datos de MongoDB.
-Estos documentos JSON los analizaremos separando los repositorios con UML del resto. 
-Por tanto, se realizarán dos diagramas de caja de 200 datos cada una de ellas, para comparar la distribución del número de commits que se realizado en los repositorios con diagramas UML y la distribución del número de commits que se han realizado en repositorios sin diagramas UML.
-
+Para examinar el conjunto de datos del número de commits, que se realizan en los repositorios que usan archivos UML y los que no los usan, se usará la representación de  los diagramas de caja como se ha hecho en el caso anterior.
+Realizaresmos está representación a partir del conjunto de datos relacionados con el número total de commits de cada repositorio que se encuentran almacenados en los documentos JSON de la base de datos de MongoDB.
+Estos documentos JSON los analizaremos separando los repositorios con UML del resto de repositosios. 
+Por tanto, se realizarán dos diagramas de caja con una distribución de 200 datos en cada una de ellas, para comparar la distribución del número de commits que se ha realizado en los repositorios con diagramas UML y la distribución del número de commits que se han realizado en repositorios sin diagramas UML.
+Con estos diagramas de caja se observarán los distintos valores estádísticos, mencionados anteriormente, para tener una información visual de ambas distribuciones de datos y analizar las diferencias entre éstas.  
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1121,8 +1139,6 @@ Por tanto, se realizarán dos diagramas de caja de 200 datos cada una de ellas, 
 \label{chap:resultados}
 
  
-(Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejemplos de haberla utilizado para que se vea su utilidad.)
-
 En este capítulo se presentan los resultados obtenidos a partir del análisis de los datos recopilados de 200 repositorios de GitHub con archivos UML y 200 repositorios sin dichos archivos.
 Recordemos que el objetivo de este análisis es comparar estos tipos de repositorios para ver las similitudes y diferencias que existen entre ellos.
 Para ello se ha realizado una recolección de datos y un análisis estadístico para establecer patrones en los repositorios con archivos UML y en en lo que no hay archivos UML.
@@ -1130,9 +1146,11 @@ Para ello se ha realizado una recolección de datos y un análisis estadístico 
 
 \section{Descripción de los datos recopilados}
 \label{sec:descripción de los datos recopilado}
+% Los grupos 2 y 3 tienen una mayor dispersión de datos que los grupos 1 y 4. También podemos observar diferencias entre 3Oy el 1O
+% cuartil, que también es una medida de la variabilidad de los datos
 
 Los datos recopilados para el análisis de este proyecto se obtuvieron de una selección de repositorios públicos almacenados en GitHub. 
-Estos repositorios pueden contener archivos de código, documentación y otros tipos de archivos como los ``.uml''.
+Estos repositorios pueden contener archivos de código, documentación y otros tipos de archivos, como los ``.uml''.
 Este último tipo de archivos será el que divida los datos obtenidos para el análisis de nuestro estudio en los repositorios que lo contengan y en los que no.
 
 
@@ -1150,12 +1168,11 @@ Como se ha mencionado anteriormente, el conjunto de los 400 archivos JSON, tanto
 Con esta división de los datos contenidos en los archivos JSON, se analizarán mejor las similitudes y diferencias entre los diferentes ususarios de estos repositorios. 
 
 
-De las características que se pueden observar en cada uno de los archivos JSON, obtenidos tanto de los repositorios como de los commits realizados en estos, se han decidido estudiar las siguientes: la licencia ( nos dice si el repositorio garantiza derechos y responsabilidades),
-el tipo de propietario ( nos dice si el propietario del repositorio es un usuario único o una entidad que representa un grupo de personas ), la existencia de forks (nos dice si el repositorio permite a colaboradores trabajar directamente en el repositorio o trabajar en una copia independiente de este ),
-el lenguaje de programación principal ( nos dice el lenguaje principal que se emplea en el repositorio ), la cantidad total o frecuencia de los commits ( refleja el nivel de actividad de un proyecto).
+De las características que se pueden observar en cada uno de los archivos JSON, obtenidos tanto de los repositorios como de los commits realizados en estos, se han decidido estudiar las siguientes: la licencia nos dice si el repositorio garantiza derechos y responsabilidades,
+el tipo de propietario nos informa si el propietario del repositorio es un usuario individual o una entidad que representa un grupo de personas, la existencia de forks nos indica si el repositorio permite a colaboradores trabajar directamente en el repositorio o trabajar en una copia independiente de este,
+el lenguaje de programación nos muestra el lenguaje predominante que se emplea en el repositorio y la cantidad total o frecuencia de los commits refleja el nivel de actividad de un proyecto.
 Para extraer dichas características de los archivos JSON, se ha realizado un procesamiento de los datos que se encuentran en estos archivos.
 Con el objetivo de obtener los datos de estas características se han desarrollado varios ficheros de Python con los cuales se sacan los datos que se encuentran en diferentes campos de los archivos JSON.
-
 
 
 \section{Análisis estadístico de los datos recopilados}
@@ -1167,27 +1184,89 @@ Después de recopilar y preprocesar los datos seleccionados se realiza un análi
 \section{Interpretación de los resultados del análisis}
 \label{sec:interpretación de los resultados del análisis}
 
+Una vez obtenidos los resultados del análisis realizado se va llevar a cabo una interpretación de los mismos.
+A continuación, se muestran una serie de gráficas que se corresponden con los resultados obtenidos en el análisis de los datos extraídos de los repositorios de GitHub.
 
+% --------------------------------      LANGUAGES      --------------------------
+Como se muestra en la Figura \ref{fig:Figure_language}, se observa que 
 
 \begin{figure}
   \centering
-  \includegraphics[width=12cm, keepaspectratio]{img/Figure_license.png}
-  \caption{Número de repositorios con licencia y sin licencia.}\label{fig:Figure_license}
+  \includegraphics[width=12cm, keepaspectratio]{img/Figure_languages.png}
+  \caption{Porcentaje de repositorios por lenguaje principal de programación.}\label{fig:Figure_language}
 \end{figure}
 
+% --------------------------------      LICENSE      --------------------------
+La figura \ref{fig:Figure_license} 
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/Figure_license.png}
+  \caption{Porcentaje de repositorios con licencia y sin licencia.}\label{fig:Figure_license}
+\end{figure}
+
+% --------------------------------    TYPE DEVELOPER     --------------------------
 
 
 \begin{figure}
   \centering
   \includegraphics[width=12cm, keepaspectratio]{img/Figure_typeDeveloper.png}
-  \caption{Número de propietarios que son ususarios y organizaciones.}\label{fig:Figure_typeDeveloper}
+  \caption{Porcentaje de propietarios que son ususarios individuales y organizaciones.}\label{fig:Figure_typeDeveloper}
 \end{figure}
+% --------------------------------      FORKS      --------------------------
 
 \begin{figure}
   \centering
   \includegraphics[width=12cm, keepaspectratio]{img/Figure_fork.png}
-  \caption{Número de repositorios con fork y sin fork}\label{fig:Figure_fork}
+  \caption{Porcentaje de repositorios con fork y sin fork.}\label{fig:Figure_fork}
 \end{figure}
+
+% --------------------------------      STARS     --------------------------
+
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/Figure_stars.png}
+  \caption{Porcentaje de stars por repositorio.}\label{fig:Figure_stars}
+\end{figure}
+
+% --------------------------------      SIZE      --------------------------
+En la figura \ref{fig:Figure_sizeUML} se representa una visualización de diagrama de caja que muestra la distribución de los tamaños de los repositorios que tienen diagramas UML 
+mientras que en la figura \ref{fig:Figure_sizeNOUML} se representa el tamaño de los repositorios que no tienen diagramas UML.
+Como se observa en \ref{fig:Figure_sizeUML} el rango intercuartílico....
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.45\linewidth}
+    \centering
+    \includegraphics[width=9cm, keepaspectratio]{img/Figure_sizeUML.png}
+    \caption{Diagrama de caja del tamaño total por repositorio con diagrama UML.}\label{fig:Figure_sizeUML}
+  \end{subfigure}
+  \hfill
+    \begin{subfigure}{0.45\linewidth}
+      \centering
+      \includegraphics[width=9cm, keepaspectratio]{img/Figure_sizeNOUML.png}
+      \caption{Diagrama de caja del tamaño total por repositorio sin diagrama UML.}\label{fig:Figure_sizeNOUML}
+  \end{subfigure}
+\end{figure}
+
+% --------------------------------      CONTRIBUTORS     --------------------------
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.45\linewidth}
+    \centering
+    \includegraphics[width=9cm, keepaspectratio]{img/Figure_contributorsUML.png}
+    \caption{Diagrama de caja del número de colaboradores total por repositorio con diagrama UML. }\label{fig:Figure_contributorsUML.png}
+  \end{subfigure}
+  \hfill
+    \begin{subfigure}{0.45\linewidth}
+      \centering
+      \includegraphics[width=9cm, keepaspectratio]{img/Figure_contributorsNOUML.png}
+      \caption{Diagrama de caja del número de colaboradores total por repositorio sin diagrama UML.}\label{fig:Figure_contributorsNOUML}
+  \end{subfigure}
+\end{figure}
+
+
+% --------------------------------      COMMITS        --------------------------
 
 En la figura \ref{fig:Figure_commitsNOUML} se observa el diagrama de caja que representa la distribución del conjunto de número de commits de los repositorios que no tienen diagramas UML.
 
@@ -1209,8 +1288,17 @@ Estos valores están significativamente alejados de la mayoría de los datos y p
 % Por otro lado, un IQR grande indica una mayor dispersión de los datos.
 \begin{figure}
   \centering
-  \includegraphics[width=12cm, keepaspectratio]{img/Figure_commitsNOUML.png}
-  \caption{Diagrama de caja del número de commits total por repositorio sin diagrama UML. }\label{fig:Figure_commitsNOUML}
+  \begin{subfigure}{0.45\linewidth}
+    \centering
+    \includegraphics[width=9cm, keepaspectratio]{img/Figure_commitsUML.png}
+    \caption{Diagrama de caja del número de commits total por repositorio con diagrama UML. }\label{fig:Figure_commitsUML}
+  \end{subfigure}
+  \hfill
+    \begin{subfigure}{0.45\linewidth}
+      \centering
+      \includegraphics[width=9cm, keepaspectratio]{img/Figure_commitsNOUML.png}
+      \caption{Diagrama de caja del número de commits total por repositorio sin diagrama UML.}\label{fig:Figure_commitsNOUML}
+  \end{subfigure}
 \end{figure}
 
 En la figura \ref{fig:Figure_commitsUML} se observa el diagrama de caja que representa la distribución del conjunto de número de commits de los repositorios que tienen diagramas UML.
@@ -1220,48 +1308,6 @@ Al comparar este diagrama de caja con el de la figura \ref{fig:Figure_commitsNOU
 Además, el rango intercuartil del número de commits es mayor en el conjunto de los repositorios con diagramas UML que en el conjunto de los repositorios sin diagramas UML.
 Sin embargo, ambos conjuntos de datos muestran una gran cantidad de valores atípicos. 
 
-
-\begin{figure}
-  \centering
-  \includegraphics[width=12cm, keepaspectratio]{img/Figure_commitsUML.png}
-  \caption{Diagrama de caja del número de commits total por repositorio con diagrama UML.}\label{fig:Figure_commitsUML}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=12cm, keepaspectratio]{img/Figure_languages.png}
-  \caption{Número de repositorios por lenguaje principal de programación}\label{fig:Figure_language}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=12cm, keepaspectratio]{img/Figure_contributorsNOUML.png}
-  \caption{Número de repositorios por lenguaje principal de programación}\label{fig:Figure_contributors_uml.png}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=12cm, keepaspectratio]{img/Figure_contributorsUML.png}
-  \caption{Número de repositorios por lenguaje principal de programación}\label{fig:Figure_contributors_nouml.png}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=12cm, keepaspectratio]{img/Figure_sizeUML.png}
-  \caption{Número de repositorios por lenguaje principal de programación}\label{fig:Figure_sizeUML}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=12cm, keepaspectratio]{img/Figure_sizeNOUML.png}
-  \caption{Número de repositorios por lenguaje principal de programación}\label{fig:Figure_sizeNOUML}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=12cm, keepaspectratio]{img/Figure_stars.png}
-  \caption{Número de repositorios por lenguaje principal de programación}\label{fig:Figure_stars}
-\end{figure}
 
 
 \section{Conclusiones de los resultados del análisis}
@@ -1278,24 +1324,13 @@ Sin embargo, ambos conjuntos de datos muestran una gran cantidad de valores atí
 \chapter{Conclusiones}
 \label{chap:conclusiones}
 
-Por último, presentamos las conclusiones obtenidas tras realizar este Trabajo de Fin de Grado, en el cual se ha realizado un exhaustivo análisis de 400 repositorios almacenados en la API de Github para obtener que patrones suelen tener los repositorios que poseen modelos UML y cuales los repositorios que no tienen este tipo de modelos. 
+Por último, presentamos las conclusiones obtenidas tras realizar este Trabajo de Fin de Grado, en el cual se ha realizado un exhaustivo análisis de 400 repositorios almacenados en la API de GitHub para obtener que patrones suelen tener los repositorios que poseen modelos UML y cuales los repositorios que no tienen este tipo de modelos. 
 (Terminar)
 
 \section{Consecución de objetivos}
 \label{sec:consecucion-objetivos}
 
-Esta sección es la sección espejo de las dos primeras del capítulo de objetivos, donde se planteaba el objetivo general y se elaboraban los específicos.
 
-Es aquí donde hay que debatir qué se ha conseguido y qué no. 
-Cuando algo no se ha conseguido, se ha de justificar, en términos de qué problemas se han encontrado y qué medidas se han tomado para mitigar esos problemas.
-
-Y si has llegado hasta aquí, siempre es bueno pasarle el corrector ortográfico, que las erratas quedan fatal en la memoria final.
-Para eso, en Linux tenemos aspell, que se ejecuta de la siguiente manera desde la línea de \emph{shell}:
-
-
-\begin{verbatim}
-  aspell --lang=es_ES -c memoria.tex
-\end{verbatim}
 
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
