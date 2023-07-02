@@ -431,8 +431,8 @@ A finales de abril del año pasado empecé mi proyecto de fin de grado.
 El desarrollo de este trabajo comenzó en mayo de 2022, cuando el profesor Gregorio Robles Martínez me sugirió la idea del proyecto que he llevado a cabo. 
 
 
-Durante los meses de mayo y junio empecé a documentarme sobre Lindholmen dataset\footnote{\url{http://models-db.com/}}, que es una base de datos con los repositorios que utilizan diagramas UML en GitHub.
-De la misma manera, obtuve la información necesaria sobre las herramientas Grimoire Perceval\footnote{\url{https://github.com/chaoss/grimoirelab-perceval}} y GitHub API\footnote{\url{https://docs.github.com/es/rest}}, las cuales se utilizan para analizar repositorios y extraer datos de estos. 
+Durante los meses de mayo y junio empecé a documentarme sobre Lindholmen dataset\footnote{\url{http://models-db.com/}}~\cite{robles2017extensive}, que es una base de datos con los repositorios que utilizan diagramas UML en GitHub.
+De la misma manera, obtuve la información necesaria sobre las herramientas Grimoire Perceval\footnote{\url{https://github.com/chaoss/grimoirelab-perceval}}~\cite{duenas2018perceval} y GitHub API\footnote{\url{https://docs.github.com/es/rest}}, las cuales se utilizan para analizar repositorios y extraer datos de estos. 
 Después del estudio y análisis de estas herramientas, me decanté por Perceval, ya que con ella se obtienen más datos de GitHub.
 
 
@@ -462,7 +462,7 @@ Por último, durante los meses de mayo y junio desarrollé los programas para la
 \chapter{Estado del arte}
 \label{chap:estado}
 
-En este capítulo, se proporciona una comprensión completa y actualizada de las herramientas y librerías usadas en el Trabajo Fin de Grado.
+En este capítulo, se presentan las herramientas y librerías usadas en el Trabajo Fin de Grado.
 Esta exposición nos da una visión de las tecnologías empleadas en el proyecto.
 
 \section{Tecnologías y herramientas} % título de sección (se muestra)
@@ -747,7 +747,7 @@ Por último, realizaremos un análisis estadístico de los datos recopilados.
 Para poder realizar este proyecto es necesario tener intalados WSL (Windows Subsystem for Linux) en Windows y, en dicho Subsistema de Windows, tener Ubuntu como sistema operativo, además de la librería Perceval. 
 A continuación, procederemos a explicar los pasos a seguir para realizar correctamente las instalaciones necesarias .
 
-\subsection{Instalación de WSL.} % título de sección (se muestra)
+\subsection{Instalación de WSL} % título de sección (se muestra)
 \label{sec:instalación de WSL}
 
 En primer lugar, comprobaremos que nuestro ordenador cumple con los requisitos previos a la instalación, ya que para instalar WSL se necesita tener Windows 10 versión 2004 o posterior y nuestro hardware debe ser compatible con la virtualización de Hyper-V. 
@@ -777,7 +777,7 @@ Para habilitar los permisos para usar WSL en Windows debemos seguir los siguient
 
 Una vez que nos aseguremos de cumplir estos requisitos y tener habilitado WSL en el ordenador procedemos a instalar la distribución de Linux (Ubuntu) desde la Microsoft Store para usar en WSL. 
 
-\subsection{Instalación de Ubuntu.} % título de sección (se muestra)
+\subsection{Instalación de Ubuntu} % título de sección (se muestra)
 \label{sec:instalación de ubuntu}
 
 A continuación, descargaremos la versión de GNU/Linux que queramos usar, en nuestro caso hemos descargado la versión Ubuntu 20.04.5 LTS.
@@ -792,7 +792,7 @@ Cuando se ha descargado podremos comprobar que Ubuntu se ejecuta con WSL.
   \caption{Características de Windows.}\label{fig:ubuntu}
 \end{figure}
 
-\subsection{Instalación de Perceval.} % título de sección (se muestra)
+\subsection{Instalación de Perceval} % título de sección (se muestra)
 \label{sec:instalación de perceval}
 
 Antes de instalar Perceval tenemos que conectarnos al Subsistema de Windows para Linux ya que instalaremos dicha librería en este entorno.
@@ -814,7 +814,7 @@ Una vez estemos conectados a WSL, pasamos a realizar los siguientes pasos para i
 Para verificar que la instalación se ha completado con éxito usaremos el comando \emph{perceval --version}. 
 Si este comando devuelve la versión de GrimoireLab Perceval instalada, entonces la instalación se ha completado correctamente y se puede empezar a utilizar Perceval para recopilar datos de diversas fuentes de software.
 
-\section{Recopilación de datos.} % título de sección (se muestra)
+\section{Recopilación de datos} % título de sección (se muestra)
 \label{sec:recopilación de datos}
 
 En esta parte del proyecto se lleva a cabo la recopilación de una lista de repositorios que utilizan archivos UML y otra en las que no se utilizan archivos UML.
@@ -1186,7 +1186,7 @@ Una vez obtenidos los resultados del análisis realizado se va llevar a cabo una
 
 A continuación, se muestran una serie de gráficas que se corresponden con los resultados obtenidos en el análisis de los datos extraídos de los repositorios de GitHub.
 
-\subsection{Gráfico de barras de los lenguages principales de programación por repositosio.}
+\subsection{Principales lenguajes de programación por repositosio}
 \label{sec:Gráfico de barras de los lenguages principales de programación por repositosio}
 
 % --------------------------------      LANGUAGES      --------------------------
@@ -1209,7 +1209,7 @@ Por último, mencionar que en los repositosios con UML que hemos usado en este e
   \caption{Porcentaje de repositorios por lenguaje principal de programación.}\label{fig:Figure_language}
 \end{figure}
 
-\subsection{Gráfico de barras de los repositorios con licencia y sin licencia. }
+\subsection{Repositorios con licencia y sin licencia}
 \label{sec:Gráfico de barras de los repositorios con licencia y sin licencia}
 
 % --------------------------------      LICENSE      --------------------------
@@ -1223,7 +1223,7 @@ Esto indica que los repositorios con diagramas UML tienen tienen una tendencia s
   \caption{Porcentaje de repositorios con licencia y sin licencia.}\label{fig:Figure_license}
 \end{figure}
 
-\subsection{Gráfico de barras de los propietarios de los repositosios que son usuarios individuales y organizaciones.}
+\subsection{Propietarios de los repositosios que son usuarios individuales y organizaciones}
 \label{sec:Gráfico de barras de los propietarios de los repositosios que son usuarios individuales y organizaciones}
 % ------------------------------    TYPE DEVELOPER     --------------------------------------------
 
@@ -1239,7 +1239,7 @@ Estos resultados señalan que en ambos tipos de repositorios hay una tendencia s
 \end{figure}
 
 
-\subsection{Gráfico de barras de los repositorios con fork y sin fork.}
+\subsection{Repositorios con fork y sin fork}
 \label{sec:Gráfico de barras de los repositorios con fork y sin forks}
 % --------------------------------      FORKS      --------------------------
 En la siguiente figura \ref{fig:Figure_fork} se observa un gráfico de barras con los porcentajes de  los repositorios con y sin diagramas UML que tienen o no tienen forks.
@@ -1254,7 +1254,7 @@ Estos resultados reflejan que los repositorios con diagramas UML tienen una tend
 \end{figure}
 
 
-\subsection{Gráfico de barras de los stars por repositorio.}
+\subsection{Stars por repositorio}
 \label{sec:Gráfico de barras de los stars por repositorio}
 % --------------------------------      STARS     --------------------------
 En esta figura \ref{fig:Figure_stars} también se utiliza un gráfico para ofreces información visual acerca de la distribución de los repositosios que tiene stars. 
@@ -1269,7 +1269,7 @@ Estos datos indican de manera clara que los repositorios con diagramas UML no so
 \end{figure}
 
 
-\subsection{Diagrama de caja del tamaño de los repositorios.}
+\subsection{Tamaño de los repositorios}
 \label{sec:Diagrama de caja del tamaño de los repositorios}
 % ------------------------------      SIZE      ----------------------------
 En la figura \ref{fig:Figure_sizeUML} se representa una visualización de diagrama de caja que muestra la distribución de los tamaños de los repositorios que tienen diagramas UML 
@@ -1304,7 +1304,7 @@ En cuanto a los valores atípicos, en ambas figuras hay una gran cantidad de val
   \end{subfigure}
 \end{figure}
 
-\subsection{Diagrama de caja de los colaboradores por repositorio.}
+\subsection{Colaboradores por repositorio}
 \label{sec:Diagrama de caja de los colaboradores por repositorio}
 % --------------------------------      CONTRIBUTORS     --------------------------
 En la figura \ref{fig:Figure_contributorsUML} se muestra el diagrama de caja que refleja la distribución del número de forks de los repositorios con diagramas UML mientras que en la figura \ref{fig:Figure_contributorsNOUML} el diagrama de caja se corresponde con aquellos repositosios sin diagramas UML.
@@ -1341,7 +1341,7 @@ Estos valores atípicos nos indican que sólo en unos pocos repositorios de el n
   \end{subfigure}
 \end{figure}
 
-\subsection{Diagrama de caja de los commits por repositorio.}
+\subsection{Commits por repositorio}
 \label{sec:Diagrama de caja de los commits por repositorio}
 % --------------------------------      COMMITS        --------------------------
 En la figura \ref{fig:Figure_commitsUML} y \ref{fig:Figure_commitsNOUML} se observan los diagramas de caja que representan la distribución del conjunto de número de commits de los repositorios que tienen y no tienen diagramas UML.
@@ -1406,7 +1406,7 @@ Otro hallago significativo es que los repositorios con diagramas UML tienen una 
 Estos nos revela que son repositorios que tienen un menor apoyo por parte de la comunidad de software que los repositorios que no contienen diagramas UML.
 
 
-Por último, mencionar que los resultados obtenidos muestran que los repositorios que contienen diagramas UML tienen un número menor de colaboradores y un número menor de commits que los repositorios que no contienen diagramas UML.
+Por último, cabe mencionar que los resultados obtenidos muestran que los repositorios que contienen diagramas UML tienen un número menor de colaboradores y un número menor de commits que los repositorios que no contienen diagramas UML.
 Estos resultados no coinciden con nuestra hipótesis inicial, ya que esperábamos que los repositorios que contienen diagramas UML tuvieran un número mayor de colaboradores y un número mayor de commits que los repositorios que no contienen diagramas UML.
 Por tanto, podemos concluimos que los repositorios que contienen diagramas UML tienen un mayor tamaño, pero tienen menos colaboradores y menos commits que los repositorios que no contienen diagramas UML.
 
@@ -1449,7 +1449,7 @@ A continuación, se mencionan los aprendizajes que me permitieron realizar la ex
 \begin{enumerate}
   \item Informática I: Me sirvió fundamentalmente par adquirir las bases de programación.
   \item Informática II: Aparte de reforzar las bases de programación adquiridas, obtuve una formación en otras herramientas comúnmente usadas para programar y, además, mejoré la estructuración de código y lógica necesarias en programación.
-  \item Protocolos para la Transmisión de Audio y Vídeo de Internet: En esta materia aprendí los conocimientos del lenguaje de programación Python además de cómo se estructura y para qué se usa la estructura de datos JSON.
+  \item Protocolos para la Transmisión de Audio y Vídeo de Internet: En esta materia aprendí los conocimientos del lenguaje de programación Python, además de cómo se estructura y para qué se usa la estructura de datos JSON.
   \item Estadística para Sistema Audiovisuales: La adquisición de conceptos básicos de probabilidad y estadística me ha sido de ayuda en el proceso de análisis de datos de este proyecto. 
 \end{enumerate}
 
@@ -1491,8 +1491,6 @@ A continuación, se mencionarán algunas de las mejoras o nuevas funcionalidades
   \item  Una posible mejora podría ser la forma en la que nuestra herramienta detecta si hay diagramas UML o no.
   \item  Para mejorar este estudio se debería realizar un análisis de un mayor número de repositorios.
   \item  También podría ser interesante implementar en el programa la funcionalidad para saber el tipo de archivos que se han usado para almacenar estos diagramas UML.
-  \item    
-  \item 
 \end{itemize}
 
 
