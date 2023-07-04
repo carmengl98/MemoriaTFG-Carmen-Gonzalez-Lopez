@@ -132,7 +132,7 @@ y habiendo obtenido la siguiente calificación:
 
 \vspace{1cm}
 \begin{flushright}
-Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 202X
+oyecto llego al final de mi etapa universitaria, dejando atrás un período que guardaré en mi memoria para siempre., a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 202X
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -350,7 +350,7 @@ UML fue creado en la década de 1990 por un grupo de expertos en software y fue 
 Desde entonces, ha sido ampliamente adoptado en la industria del software y es utilizado por desarrolladores, arquitectos de software, analistas de sistemas y otros profesionales relacionados con la ingeniería de software. 
 
 
-En la figura ~\ref{fig:diagrama-uml} vemos un ejemplo de un diagrama UML; estos actualmente cuentan con varios tipos de diagramas que se utilizan para diferentes propósitos, tienen diferentes destinatarios y se emplean en distintos contextos.
+En la figura \ref{fig:diagrama-uml} vemos un ejemplo de un diagrama UML; estos actualmente cuentan con varios tipos de diagramas que se utilizan para diferentes propósitos, tienen diferentes destinatarios y se emplean en distintos contextos.
 
 
 \begin{figure}
@@ -745,7 +745,7 @@ Por último, realizaremos un análisis estadístico de los datos recopilados.
 \label{sec:procedimiento de instalación}
 
 Para poder realizar este proyecto es necesario tener intalados WSL (Windows Subsystem for Linux) en Windows y, en dicho Subsistema de Windows, tener Ubuntu como sistema operativo, además de la librería Perceval. 
-A continuación, procederemos a explicar los pasos a seguir para realizar correctamente las instalaciones necesarias.
+A continuación, procederemos a explicar los pasos a seguir para realizar correctamente las instalaciones necesarias .
 
 \subsection{Instalación de WSL} % título de sección (se muestra)
 \label{sec:instalación de WSL}
@@ -830,7 +830,7 @@ Para obtener la lista de repositorios en los que no se usen archivos UML se proc
 
 Una vez que se obtienen ambas listas de repositorios, se procede a descargar los datos de los mismos, así como los de los commits, empleando la herramienta Grimoire Perceval.
 Esta herramienta soporta más de 30 fuentes de datos de los cuales se pueden obtener datos.
-En la figura ~\ref{fig:perceval-json} vemos un esquema del procedimiento que sigue Perceval. 
+En la figura \ref{fig:perceval-json} vemos un esquema del procedimiento que sigue Perceval. 
 En éste, el cliente escoge la fuente de la cual desea obtener los datos a analizar y ejecuta Perceval desde la línea de comandos con los parámetros necesarios para recopilar la información de la fuente seleccionada.
 Posteriormente, Perceval procesa esta información y la almacena en documentos. 
 
@@ -851,7 +851,7 @@ perceval git https://github.com/grimoirelab/perceval.git > commit.json
 Gracias a esta herramienta, se pudo obtener información detallada de los repositorios y los commits, lo que resultó fundamental para el desarrollo de este proyecto de investigación.
 Estos datos se guardaron en archivos JSON, puesto que es una estructura de datos ampliamente utilizada y fácil de comprender.
 Para llevar a cabo esta tarea usamos una conexion WLS en la que se instaló tanto Ubuntu como la librería de Perceval; ya que en Windows daba problemas.
-La intalación tanto de WLS como de Ubuntu y Perceval se han explicado en el apartado ~\ref{sec:procedimiento de instalación}.
+La intalación tanto de WLS como de Ubuntu y Perceval se han explicado en el apartado \ref{sec:procedimiento de instalación}.
 
 Después de finalizar el proceso de obtención de los datos de los repositorios se procedió a almacenarlos en la base de datos MongoDB.
 Para este fin, se buscó una forma de introducir los archivos JSON de forma automática. 
@@ -986,7 +986,7 @@ A este fichero se le pasaron los 400 datos recogidos; de los cuales, la mitad so
 En el fichero desarrollado se han analizado los siguientes datos de cada uno de los repositorios. 
 
 
-En primer lugar, se comentarán los datos que se han usado en el análizados de cada uno de los repositorios y el cáculo estadístico que se ha llevado a cabo en cada uno de ellos:
+En primer lugar, se comentarán los datos que se han usado en el análisiss de cada uno de los repositorios y el cáculo estadístico que se ha llevado a cabo en cada uno de ellos:
 
 
 \subsection{Lenguaje de programación principal del repositorio} % título de subsección (se muestra)
@@ -1017,7 +1017,7 @@ Posteriormente, se comprobará si el objeto JSON tiene información en el valor 
   \end{cases}
 \end{equation}
 
-Después de recoger los resultados de esta función comparativa, se procede a realizar la media de todos repositorios con y sin archivos UML.
+Después de recoger los resultados de esta función comparativa, se procede a realizar la media de todos los repositorios con y sin archivos UML.
 \[{Licencia} = \frac{1}{400} \sum_{i=1}^{400} x_i\]
 
 
@@ -1077,7 +1077,7 @@ Para ello, utilizaremos dos diagramas de caja para analizar y contrastar el tama
 
 
 Un diagrama de caja~\cite{neto2017boxplot} es una representación gráfica que muestra la distribución de un conjunto de datos.
-En esta representación gráfica se pueden observar de manera visual varios valores estadísticos, como podemos ver en la figura ~\ref{fig:boxplot}.
+En esta representación gráfica se pueden observar de manera visual varios valores estadísticos, como podemos ver en la figura \ref{fig:boxplot}.
 Estos valores estadísticos que podemos encontrar en un diagrama de caja son: el rango intercuartílico (RIC) que se representa como una caja rectangular y es el rango que abarca el 50\% de los datos, la línea dentro de la caja representa la mediana, 
 los bigotes que se encuentran en los extremos de la caja, los cuales representan los valores máximo y mínimo de los valores de nuestra distribución de datos y, por último, los valores atípicos que se representan mediante puntos colocados por encima del bigote superior o por debajo del bigote inferior.
 Dichos valores atípicos representan valores inusuales dentro de la distribución de datos.
@@ -1191,7 +1191,7 @@ A continuación, se muestran una serie de gráficas que se corresponden con los 
 
 % --------------------------------      LANGUAGES      --------------------------
 En este caso vamos a utilizar un gráfico de barras que nos proporciona una visualización clara de la distribución de los lenguajes de programación en los repositorios, permitiéndonos identificar los lenguajes más utilizados.
-La siguiente figura ~\ref{fig:Figure_language}, representa la distribución de los lenguajes de programación que predominan en cada uno de los repositorios analizados.
+La siguiente figura \ref{fig:Figure_language}, representa la distribución de los lenguajes de programación que predominan en cada uno de los repositorios analizados.
 En este gráfico se observa que el lenguaje de programación más utilizado en los repositorios con diagrmas UML es Java, seguido de JavaScript y C++.
 En cambio, en los repositorios sin diagramas UML el lenguaje de programación más utilizado es JavaScript, seguido de Python y Java.
 Por tanto, los lenguajes de programación más utilizados en los repositorios con diagramas UML y sin estos son JavaScript y Java. 
@@ -1214,7 +1214,7 @@ Por último, mencionar que en los repositorios con UML que hemos usado en este e
 
 % --------------------------------      LICENSE      --------------------------
 Para visualizar el porcentaje de repositorios con licencia y sin licencia tambíen se ha utilizado un gráfico de barras.
-En la figura ~\ref{fig:Figure_license} se observa que el casi el 40\% de los repositorios con diagramas UML tienen licencia, mientras que en los repositorios sin diagramas UML cerca del 20\% aproximadamante tienen licencia.
+En la figura \ref{fig:Figure_license} se observa que el casi el 40\% de los repositorios con diagramas UML tienen licencia, mientras que en los repositorios sin diagramas UML cerca del 20\% aproximadamante tienen licencia.
 Esto indica que los repositorios con diagramas UML tienen una tendencia significativamente mayor a contar con una licencia en comparación con aquellos que no contienen dichos diagramas.
 
 \begin{figure}
@@ -1227,7 +1227,7 @@ Esto indica que los repositorios con diagramas UML tienen una tendencia signific
 \label{sec:Gráfico de barras de los propietarios de los repositorios que son usuarios individuales y organizaciones}
 % ------------------------------    TYPE DEVELOPER     --------------------------------------------
 
-En la figura ~\ref{fig:Figure_typeDeveloper} se presenta un gráfico de barras que muestra el porcentaje de propietarios de los repositorios, distinguiendo entre usuarios individuales y organizaciones. 
+En la figura \ref{fig:Figure_typeDeveloper} se presenta un gráfico de barras que muestra el porcentaje de propietarios de los repositorios, distinguiendo entre usuarios individuales y organizaciones. 
 Los resultados revelan que en los repositorios con y sin diagramas UML alrededor de un 40\% son propiedad de usuarios individuales, mientras que en torno al 10\% son propiedad de organizaciones.
 Estos resultados señalan que en ambos tipos de repositorios hay una tendencia similar a que los propietarios sean usuarios individuales.
 
@@ -1242,7 +1242,7 @@ Estos resultados señalan que en ambos tipos de repositorios hay una tendencia s
 \subsection{Repositorios con fork y sin fork}
 \label{sec:Gráfico de barras de los repositorios con fork y sin forks}
 % --------------------------------      FORKS      --------------------------
-En la siguiente figura ~\ref{fig:Figure_fork} se observa un gráfico de barras con los porcentajes de  los repositorios con y sin diagramas UML que tienen o no tienen forks.
+En la siguiente figura \ref{fig:Figure_fork} se observa un gráfico de barras con los porcentajes de  los repositorios con y sin diagramas UML que tienen o no tienen forks.
 Los resultados obtenidos muestran una notable disferencia entre los repositorios que contienen diagramas UML y los que no los contienen.
 En particular, se destaca que aproximadamante el 40\% de los repositorios con diagramas UML no tienen fork, en cambio cerca del 40\% de los repositorios sin diagramas UML si tienen fork.
 Estos resultados reflejan que los repositorios con diagramas UML tienen una tendencia significativamente mayor a que se realicen forks en dichos repositorios.
@@ -1257,7 +1257,7 @@ Estos resultados reflejan que los repositorios con diagramas UML tienen una tend
 \subsection{Stars por repositorio}
 \label{sec:Gráfico de barras de los stars por repositorio}
 % --------------------------------      STARS     --------------------------
-En esta figura ~\ref{fig:Figure_stars} también se utiliza un gráfico para ofreces información visual acerca de la distribución de los repositorios que tiene stars. 
+En esta figura \ref{fig:Figure_stars} también se utiliza un gráfico para ofrecer información visual acerca de la distribución de los repositorios que tiene stars. 
 Comparando los resultados obtenidos se puede observar que hay una diferencia significativa entre los repositorios con diagramas UML y los que no los contienen.
 Se muestra claramente que el 40\% de los repositorios con diagramas UML tienen stars, mientras que en los repositorios sin diagramas UML solo cerca del 20\% tienen stars.
 Estos datos indican de manera clara que los repositorios con diagramas UML no son tan populares como los que no los contienen.
@@ -1272,21 +1272,21 @@ Estos datos indican de manera clara que los repositorios con diagramas UML no so
 \subsection{Tamaño de los repositorios}
 \label{sec:Diagrama de caja del tamaño de los repositorios}
 % ------------------------------      SIZE      ----------------------------
-En la figura ~\ref{fig:Figure_sizeUML} se representa una visualización de diagrama de caja que muestra la distribución de los tamaños de los repositorios que tienen diagramas UML 
-mientras que en la figura ~\ref{fig:Figure_sizeNOUML} se representa el tamaño de los repositorios que no tienen diagramas UML.
+En la figura \ref{fig:Figure_sizeUML} se representa una visualización de diagrama de caja que muestra la distribución de los tamaños de los repositorios que tienen diagramas UML 
+mientras que en la figura \ref{fig:Figure_sizeNOUML} se representa el tamaño de los repositorios que no tienen diagramas UML.
 Se realizará una comparación de ambos diagramas de caja para comprender las difencias de las distribuciones de datos del tamaño de los repositorios que contiene diagramas UML y que los contienen.
  
 
-En cuanto al rango intercuartílico, en la figura ~\ref{fig:Figure_sizeUML} observamos que es claramente mayor en comparación con el rango intercuartílico de la figura ~\ref{fig:Figure_sizeNOUML}.
+En cuanto al rango intercuartílico, en la figura \ref{fig:Figure_sizeUML} observamos que es claramente mayor en comparación con el rango intercuartílico de la figura \ref{fig:Figure_sizeNOUML}.
 Esto se debe a que los repositorios que contienen diagramas UML tienen un tamaño mayor que los repositorios que no los contienen y por tanto el rango intercuartílico es mayor.
-En la figura ~\ref{fig:Figure_sizeUML} este rango llega en torno a los 4000 KB, mientras que en la figura ~\ref{fig:Figure_sizeNOUML} el rango intercuartílico llega hasta los 2000 KB.
+En la figura \ref{fig:Figure_sizeUML} este rango llega en torno a los 4000 KB, mientras que en la figura \ref{fig:Figure_sizeNOUML} el rango intercuartílico llega hasta los 2000 KB.
 
 
-Al comparar la mediana que se corresponde con la línea roja, que se encuentra en el interior de ambos diagramas de caja, se observa que la mediana de la figura ~\ref{fig:Figure_sizeUML} es ligeramente mayor que la mediana de la figura ~\ref{fig:Figure_sizeNOUML}.
+Al comparar la mediana que se corresponde con la línea roja, que se encuentra en el interior de ambos diagramas de caja, se observa que la mediana de la figura \ref{fig:Figure_sizeUML} es ligeramente mayor que la mediana de la figura \ref{fig:Figure_sizeNOUML}.
 Esta mediana se encuentra en torno a los 500 KB en ambas figuras.
 
 
-Comparando el valor máximo en cada figura, nos damos cuenta de que en la figura ~\ref{fig:Figure_sizeUML} el valor máximo es mayor y se encuentra en los 6000 KB aproximadamante, mientras que en la figura ~\ref{fig:Figure_sizeNOUML} el valor máximo está cerca de los 4000 KB.
+Comparando el valor máximo en cada figura, nos damos cuenta de que en la figura \ref{fig:Figure_sizeUML} el valor máximo es mayor y se encuentra en los 6000 KB aproximadamante, mientras que en la figura \ref{fig:Figure_sizeNOUML} el valor máximo está cerca de los 4000 KB.
 En cuanto a los valores atípicos, en ambas figuras hay una gran cantidad de valores atípicos debido a que en los repositorios de nuestro estudio hay una gran cantidad de ellos que tienen un tamaño más elevado que el del resto de nuestra distribución.
 
 \begin{figure}
@@ -1307,12 +1307,12 @@ En cuanto a los valores atípicos, en ambas figuras hay una gran cantidad de val
 \subsection{Colaboradores por repositorio}
 \label{sec:Diagrama de caja de los colaboradores por repositorio}
 % --------------------------------      CONTRIBUTORS     --------------------------
-En la figura ~\ref{fig:Figure_contributorsUML} se muestra el diagrama de caja que refleja la distribución del número de forks de los repositorios con diagramas UML mientras que en la figura ~\ref{fig:Figure_contributorsNOUML} el diagrama de caja se corresponde con aquellos repositorios sin diagramas UML.
+En la figura \ref{fig:Figure_contributorsUML} se muestra el diagrama de caja que refleja la distribución del número de forks de los repositorios con diagramas UML mientras que en la figura \ref{fig:Figure_contributorsNOUML} el diagrama de caja se corresponde con aquellos repositorios sin diagramas UML.
 
 
-En este caso comparando las figuras ~\ref{fig:Figure_contributorsUML} y ~\ref{fig:Figure_contributorsNOUML} se observa una gran diferencia en el rango intercuartílico (RIC) de cada una de ellas.
-La figura ~\ref{fig:Figure_contributorsUML} tiene un rango muy pequeño de número de colaboradores, la mayoría de repositorios con diagramas UML tienen entre menos de 10 colaboradores por repositorio.
-Sin embargo, en la figura ~\ref{fig:Figure_contributorsNOUML} se aprecia claramente que este rango tiene una mayor dispersión de los datos llegando en torno a 45 colaboradores en algunos repositorios. 
+En este caso comparando las figuras \ref{fig:Figure_contributorsUML} y \ref{fig:Figure_contributorsNOUML} se observa una gran diferencia en el rango intercuartílico (RIC) de cada una de ellas.
+La figura \ref{fig:Figure_contributorsUML} tiene un rango muy pequeño de número de colaboradores, la mayoría de repositorios con diagramas UML tienen entre menos de 10 colaboradores por repositorio.
+Sin embargo, en la figura \ref{fig:Figure_contributorsNOUML} se aprecia claramente que este rango tiene una mayor dispersión de los datos llegando en torno a 45 colaboradores en algunos repositorios. 
 Esto quiere decir que en los repositorios que no contienen diagramas UML hay una mayor participación de desarrolladores que realizan commits en estos repositorios.
 
 
@@ -1320,10 +1320,10 @@ Si comparamos la mediana de ambas figuras representada con la línea roja, tambi
 En los repositorios con diagramas UML la mediana se encuentra en 5 colaboradores aproximadamente por repositorio, en cambio, en los repositorios sin diagramas UML la mediana llega casi a los 10 colaboradores por repositorio.
 
 
-En cuanto a los valores máximos de cada una de las distribuciones, vemos que en la figura ~\ref{fig:Figure_contributorsUML} el valor máximo de nuestra distribución se encuentra sobre los 10 colaboradores por repositorio, mientras que en la figura ~\ref{fig:Figure_contributorsNOUML} está en 80 colaboradores por repositosio aproximadamante.
+En cuanto a los valores máximos de cada una de las distribuciones, vemos que en la figura \ref{fig:Figure_contributorsUML} el valor máximo de nuestra distribución se encuentra sobre los 10 colaboradores por repositorio, mientras que en la figura \ref{fig:Figure_contributorsNOUML} está en 80 colaboradores por repositosio aproximadamante.
 
 
-Por último, destacar que ambas figuras tienen varios valores atípicos, en la ~\ref{fig:Figure_contributorsUML} se observa que la mayoría de estos valores atípicos se concentran cerca de 20 colaboradores, a diferencia de los valores atípicos de los repositorios sin diagramas UML que se encuentran por encima de los 80 colaboradores por repositorio. 
+Por último, destacar que ambas figuras tienen varios valores atípicos, en la \ref{fig:Figure_contributorsUML} se observa que la mayoría de estos valores atípicos se concentran cerca de 20 colaboradores, a diferencia de los valores atípicos de los repositorios sin diagramas UML que se encuentran por encima de los 80 colaboradores por repositorio. 
 Estos valores atípicos nos indican que sólo en unos pocos repositorios de el número de colaboradores es mayor con respecto al conjunto de la distribución de datos.
 
 \begin{figure}
@@ -1344,26 +1344,26 @@ Estos valores atípicos nos indican que sólo en unos pocos repositorios de el n
 \subsection{Commits por repositorio}
 \label{sec:Diagrama de caja de los commits por repositorio}
 % --------------------------------      COMMITS        --------------------------
-En la figura ~\ref{fig:Figure_commitsUML} y ~\ref{fig:Figure_commitsNOUML} se observan los diagramas de caja que representan la distribución del conjunto de número de commits de los repositorios que tienen y no tienen diagramas UML.
+En la figura \ref{fig:Figure_commitsUML} y \ref{fig:Figure_commitsNOUML} se observan los diagramas de caja que representan la distribución del conjunto de número de commits de los repositorios que tienen y no tienen diagramas UML.
 
 
 La línea roja en la caja muestra el valor de la mediana; por un lado, vemos que en ambas figuras la mediana se encuentra próxima al primer cuartil, el cual se corresponde con los valores más bajos del conjunto de valores de nuestra distribución. 
-Sin embargo, por otro lado, al comparar el diagrama de caja de la figura ~\ref{fig:Figure_commitsUML} con el de la figura ~\ref{fig:Figure_commitsNOUML}, apreciamos que la mediana tiene un valor menor en la figura ~\ref{fig:Figure_commitsUML}, lo que indica que se realizan menos commits de promedio en los repositorios con diagramas UML. 
+Sin embargo, por otro lado, al comparar el diagrama de caja de la figura \ref{fig:Figure_commitsUML} con el de la figura \ref{fig:Figure_commitsNOUML}, apreciamos que la mediana tiene un valor menor en la figura \ref{fig:Figure_commitsUML}, lo que indica que se realizan menos commits de promedio en los repositorios con diagramas UML. 
 En otras palabras, hay una concentración de valores más bajos en el conjunto de datos. 
-Esto quiere decir que en la mayoría de los repositorios con diagramas UML se realizan menos commits que en los repositosios sin diagramas UML.
+Esto quiere decir que en la mayoría de los repositorios con diagramas UML se realizan menos commits que en los repositorios sin diagramas UML.
 
  
 Observando la longitud de la caja, conocida como rango intercuartílico (RIC), nos damos cuenta de que el número de commits que es mayor en el conjunto de los repositorios sin diagramas UML que en el conjunto de los repositorios con diagramas UML.
-Este rango en la figura ~\ref{fig:Figure_commitsUML} es pequeño y se encuentra entre 0 y 100 commits aproximadamante, lo que indica que el conjunto del número de commits por repositorio está concentrado en un rango estrecho y hay poca variabilidad.
-Por el contrario en la figura ~\ref{fig:Figure_commitsNOUML} este rango tiene una dispersión mayor y por tanto mayor variabilidad del conjunto del número de commits por repositorio, que va hasta más de 1000 commits por repositorio.
+Este rango en la figura \ref{fig:Figure_commitsUML} es pequeño y se encuentra entre 0 y 100 commits aproximadamante, lo que indica que el conjunto del número de commits por repositorio está concentrado en un rango estrecho y hay poca variabilidad.
+Por el contrario en la figura \ref{fig:Figure_commitsNOUML} este rango tiene una dispersión mayor y por tanto mayor variabilidad del conjunto del número de commits por repositorio, que va hasta más de 1000 commits por repositorio.
 
 
 Además, si nos fijamos en el bigote superior de ambos diagramas de caja, observamos que se extiende hacia valores más altos; esto nos indican, que una pequeña cantidad del conjunto del número de commits realizados se encuentran más alejados del rango intercuartílico.
-En la figura ~\ref{fig:Figure_commitsUML} este máximo está en 500 commits, mientras que en la figura ~\ref{fig:Figure_commitsNOUML} se encuentra sobre los 2000 commits.
+En la figura \ref{fig:Figure_commitsUML} este máximo está en 500 commits, mientras que en la figura \ref{fig:Figure_commitsNOUML} se encuentra sobre los 2000 commits.
 
 
 También observamos la presencia de una gran cantidad de valores atípicos en ambas figuras, representados como puntos individuales por encima del bigote superior, superando los 3500 commits en ambas distribuciones de datos. 
-Estos valores están significativamente alejados de la mayoría de los datos y podrían ser el resultado de un cierto número de repositorios en los cuales se han realizado una gran cantidad de commits que no se corresponden (con el rango típico). 
+Estos valores están significativamente alejados de la mayoría de los datos y podrían ser el resultado de un cierto número de repositorios en los cuales se han realizado una gran cantidad de commits que no se corresponden con el rango típico. 
 
 \begin{figure}
   \centering
@@ -1430,7 +1430,7 @@ Además, para concluir, se mencionarán futuras mejoras para perfeccionar o incr
 \label{sec:consecucion-objetivos}
 
 Basándonos en los resultados obtenidos y el análisis realizado, se puede concluir que se ha logrado cumplir satisfactoriamente el objetivo general de este Trabajo de Fin de Grado.
-Durante la realización de este proyecto nos hemos ido enfrentando a los desafíos de cada uno de los objetivos específicos que se muestran en el capítulo ~\ref{chap:objetivos}.
+Durante la realización de este proyecto nos hemos ido enfrentando a los desafíos de cada uno de los objetivos específicos que se muestran en el capítulo \ref{chap:objetivos}.
 Dentro de estos objetivos planteados, se ha logrado realizar un aprendizaje de la herramienta Perceval, que nos ha permitido recopilar los datos de los repositorios que se han seleccionado en documentos estructurados JSON, para realizar el análisis de este proyecto. 
 También se ha conseguido desarrollar una serie de programas para extraer y almacenar los datos que nos resultaron relevantes para el análisis de nuestro estudio.
 Y por último, se ha llevado a cabo con éxito el análisis con el cual se observan las diferencias y similitudes de los repositorios que tienen archivos UML y los que no.
